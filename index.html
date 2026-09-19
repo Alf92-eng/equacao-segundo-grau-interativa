@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aprenda equação do segundo grau com cálculo passo a passo, gráfico interativo e exercícios.">
+  <title>Equação do 2º Grau | Matemática Interativa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#inicio" aria-label="Matemática Interativa — início">
+        <span class="brand-mark" aria-hidden="true">x²</span>
+        <span>Matemática <strong>Interativa</strong></span>
+      </a>
+      <nav class="progress-nav" aria-label="Progresso da aula">
+        <a class="progress-item is-active" href="#conceito" data-section="conceito"><span>1</span>Conceito</a>
+        <a class="progress-item" href="#delta" data-section="delta"><span>2</span>Delta</a>
+        <a class="progress-item" href="#bhaskara" data-section="bhaskara"><span>3</span>Bhaskara</a>
+        <a class="progress-item" href="#grafico" data-section="grafico"><span>4</span>Gráfico</a>
+        <a class="progress-item" href="#pratica" data-section="pratica"><span>5</span>Prática</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero section" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Laboratório visual e interativo</p>
+        <h1 id="hero-title">Equação do <span>2º Grau</span></h1>
+        <p class="hero-subtitle">Entenda, calcule e visualize.</p>
+        <p class="hero-text">Descubra como os coeficientes transformam a equação, as raízes e o desenho da parábola — um passo de cada vez.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#calculadora">Começar a explorar <span aria-hidden="true">↓</span></a>
+          <a class="button button-outline" href="#grafico">Manipular a parábola <span aria-hidden="true">✥</span></a>
+        </div>
+        <ul class="hero-features" aria-label="Recursos interativos">
+          <li><span aria-hidden="true">✓</span> Arraste os pontos</li>
+          <li><span aria-hidden="true">✓</span> Mude a curva</li>
+          <li><span aria-hidden="true">✓</span> Digite uma função</li>
+        </ul>
+      </div>
+      <div class="hero-note" aria-label="Visão geral da equação">
+        <div class="tape" aria-hidden="true"></div>
+        <p class="note-label">A forma geral</p>
+        <div class="formula formula-hero" aria-label="a x ao quadrado mais b x mais c igual a zero">
+          <span class="term term-a">a</span>x² + <span class="term term-b">b</span>x + <span class="term term-c">c</span> = 0
+        </div>
+        <div class="sketch-parabola" aria-hidden="true">
+          <svg viewBox="0 0 280 130" role="presentation">
+            <path class="sketch-axis" d="M18 104H264M139 14V119"/>
+            <path class="sketch-curve" d="M38 18 C78 119, 202 119, 244 18"/>
+            <circle cx="75" cy="104" r="4"/><circle cx="207" cy="104" r="4"/>
+          </svg>
+        </div>
+        <p class="hand-note">cada valor muda a curva!</p>
+      </div>
+    </section>
+
+    <section class="section" id="conceito" aria-labelledby="conceito-title">
+      <div class="section-heading">
+        <p class="section-kicker">01 — Primeiro, o essencial</p>
+        <h2 id="conceito-title">O que é uma equação do 2º grau?</h2>
+        <p>É toda equação que pode ser escrita na forma abaixo, com o maior expoente de <em>x</em> igual a 2.</p>
+      </div>
+
+      <div class="concept-layout">
+        <article class="paper-card definition-card">
+          <p class="small-label">Forma geral</p>
+          <p class="formula formula-large">ax² + bx + c = 0</p>
+          <div class="rule" role="note">
+            <span aria-hidden="true">!</span>
+            <p><strong>a, b e c</strong> são números reais e <strong>a ≠ 0</strong>. A letra <strong>x</strong> é a incógnita.</p>
+          </div>
+        </article>
+
+        <div class="coefficient-grid" aria-label="Significado dos coeficientes">
+          <article class="coefficient-card coefficient-a">
+            <span class="coefficient-letter">a</span>
+            <div><h3>Quadrático <span class="tooltip" tabindex="0" aria-label="Dica: se a for positivo, a parábola abre para cima; se for negativo, abre para baixo." data-tooltip="Se a > 0, a parábola abre para cima; se a < 0, abre para baixo.">?</span></h3><p>Acompanha x² e define a abertura e o sentido da parábola.</p></div>
+          </article>
+          <article class="coefficient-card coefficient-b">
+            <span class="coefficient-letter">b</span>
+            <div><h3>Linear <span class="tooltip" tabindex="0" aria-label="Dica: o coeficiente b participa do cálculo do eixo de simetria." data-tooltip="O valor de b participa do eixo de simetria: xv = −b / 2a.">?</span></h3><p>Acompanha x e ajuda a determinar a posição do vértice.</p></div>
+          </article>
+          <article class="coefficient-card coefficient-c">
+            <span class="coefficient-letter">c</span>
+            <div><h3>Independente <span class="tooltip" tabindex="0" aria-label="Dica: quando x vale zero, y vale c." data-tooltip="Quando x = 0, todos os termos com x somem e y = c.">?</span></h3><p>É o valor em que a parábola encontra o eixo y.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="calculator-section" id="calculadora" aria-labelledby="calculator-title">
+      <div class="section calculator-inner">
+        <div class="section-heading section-heading-light">
+          <p class="section-kicker">02 — Laboratório</p>
+          <h2 id="calculator-title">Resolva sua equação</h2>
+          <p>Altere os coeficientes. A equação e o gráfico acompanham você em tempo real.</p>
+        </div>
+
+        <div class="calculator-shell">
+          <form class="coefficient-form" id="equation-form" novalidate>
+            <fieldset>
+              <legend class="sr-only">Coeficientes da equação</legend>
+              <div class="input-row">
+                <label class="number-field" for="input-a">
+                  <span>Coeficiente a</span>
+                  <span class="input-wrap"><strong>a =</strong><input id="input-a" name="a" type="text" inputmode="decimal" value="1" autocomplete="off" aria-describedby="hint-a"></span>
+                  <small id="hint-a">Deve ser diferente de zero</small>
+                </label>
+                <label class="number-field" for="input-b">
+                  <span>Coeficiente b</span>
+                  <span class="input-wrap"><strong>b =</strong><input id="input-b" name="b" type="text" inputmode="decimal" value="3" autocomplete="off"></span>
+                  <small>Pode ser positivo, negativo ou zero</small>
+                </label>
+                <label class="number-field" for="input-c">
+                  <span>Coeficiente c</span>
+                  <span class="input-wrap"><strong>c =</strong><input id="input-c" name="c" type="text" inputmode="decimal" value="-10" autocomplete="off"></span>
+                  <small>Aceita vírgula ou ponto decimal</small>
+                </label>
+              </div>
+
+              <div class="live-equation" aria-live="polite">
+                <span>Sua equação</span>
+                <strong id="equation-preview">x² + 3x − 10 = 0</strong>
+              </div>
+
+              <p class="form-error" id="form-error" role="alert" hidden></p>
+              <button class="button button-calculate" type="submit">Calcular passo a passo <span aria-hidden="true">→</span></button>
+            </fieldset>
+          </form>
+
+          <aside class="quick-examples" aria-labelledby="examples-title">
+            <div>
+              <p class="small-label" id="examples-title">Experimente um caso</p>
+              <p>Preencha os campos com um exemplo:</p>
+            </div>
+            <div class="example-buttons">
+              <button type="button" class="example-button" data-a="1" data-b="3" data-c="-10"><span aria-hidden="true">✦</span> 2 raízes reais</button>
+              <button type="button" class="example-button" data-a="1" data-b="-4" data-c="4"><span aria-hidden="true">◆</span> 1 raiz real</button>
+              <button type="button" class="example-button" data-a="1" data-b="2" data-c="5"><span aria-hidden="true">○</span> Sem raízes reais</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section results-section" id="delta" aria-labelledby="steps-title">
+      <div class="section-heading">
+        <p class="section-kicker">03 — A resolução completa</p>
+        <h2 id="steps-title">Veja como chegamos ao resultado</h2>
+        <p>Abra cada etapa ou acompanhe na ordem. Nenhuma conta fica escondida.</p>
+      </div>
+
+      <div class="status-card status-positive" id="delta-status" role="status" aria-live="polite">
+        <span class="status-icon" id="status-icon" aria-hidden="true">↔</span>
+        <div>
+          <p class="status-eyebrow" id="status-eyebrow">Δ = 49 • positivo</p>
+          <h3 id="status-title">Duas raízes reais diferentes</h3>
+          <p id="status-text">A parábola cruza o eixo x em dois pontos.</p>
+        </div>
+      </div>
+
+      <div class="lesson-layout">
+        <div class="steps-list" id="bhaskara">
+          <details class="step-card" open>
+            <summary><span class="step-number">1</span><span><small>Passo 1</small>Identificar a, b e c</span><span class="chevron" aria-hidden="true"></span></summary>
+            <div class="step-content" id="step-1"></div>
+          </details>
+          <details class="step-card">
+            <summary><span class="step-number">2</span><span><small>Passo 2</small>Calcular Δ</span><span class="chevron" aria-hidden="true"></span></summary>
+            <div class="step-content" id="step-2"></div>
+          </details>
+          <details class="step-card">
+            <summary><span class="step-number">3</span><span><small>Passo 3</small>Analisar Δ</span><span class="chevron" aria-hidden="true"></span></summary>
+            <div class="step-content" id="step-3"></div>
+          </details>
+          <details class="step-card">
+            <summary><span class="step-number">4</span><span><small>Passo 4</small>Aplicar Bhaskara</span><span class="chevron" aria-hidden="true"></span></summary>
+            <div class="step-content" id="step-4"></div>
+          </details>
+          <details class="step-card">
+            <summary><span class="step-number">5</span><span><small>Passo 5</small>Encontrar x₁ e x₂</span><span class="chevron" aria-hidden="true"></span></summary>
+            <div class="step-content" id="step-5"></div>
+          </details>
+          <button class="button button-secondary next-step" id="next-step" type="button">Próximo passo <span aria-hidden="true">↓</span></button>
+        </div>
+
+        <aside class="answer-card" aria-live="polite">
+          <p class="small-label">Resultado</p>
+          <div class="answer-equation" id="answer-equation">x² + 3x − 10 = 0</div>
+          <div class="answer-values" id="answer-values">
+            <p><span>x₁</span><strong>2</strong></p>
+            <p><span>x₂</span><strong>−5</strong></p>
+          </div>
+          <p class="answer-note" id="answer-note">Ao substituir 2 ou −5, a expressão resulta em zero.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="graph-section" id="grafico" aria-labelledby="graph-title">
+      <div class="section graph-inner">
+        <div class="section-heading">
+          <p class="section-kicker">04 — Agora, enxergue</p>
+          <h2 id="graph-title">Visualize a parábola</h2>
+          <p>A curva mostra a função <strong>y = ax² + bx + c</strong>. As raízes são exatamente os encontros com o eixo x.</p>
+        </div>
+
+        <div class="graph-workbench" aria-labelledby="graph-workbench-title">
+          <div class="workbench-copy">
+            <span class="workbench-icon" aria-hidden="true">✥</span>
+            <div>
+              <p class="small-label" id="graph-workbench-title">Laboratório gráfico</p>
+              <h3>Construa a equação com o mouse</h3>
+              <p id="graph-mode-help">Escolha um modo para manipular a parábola diretamente no plano cartesiano.</p>
+            </div>
+          </div>
+          <div class="graph-tools" role="group" aria-label="Modos de edição do gráfico">
+            <button class="graph-tool" id="drag-mode" type="button" aria-pressed="false">
+              <span aria-hidden="true">↕</span> Arrastar curva
+            </button>
+            <button class="graph-tool" id="points-mode" type="button" aria-pressed="false">
+              <span aria-hidden="true">⌖</span> Criar com 3 pontos
+            </button>
+            <button class="graph-tool graph-tool-clear" id="clear-graph-mode" type="button" hidden>
+              Encerrar edição
+            </button>
+          </div>
+          <div class="graph-live-card">
+            <form class="graph-equation-editor" id="graph-equation-form" novalidate>
+              <label class="graph-live-label" for="graph-equation-input">Digite ou edite a função do gráfico</label>
+              <div class="graph-equation-row">
+                <input id="graph-equation-input" type="text" value="y = x² + 3x − 10" autocomplete="off" spellcheck="false" aria-describedby="graph-equation-feedback graph-scale">
+                <button class="apply-equation" type="submit">Gerar gráfico</button>
+              </div>
+              <small class="graph-equation-feedback" id="graph-equation-feedback" role="status" aria-live="polite">Exemplos: y = x² + 3x − 10 ou y = 2x + 3</small>
+              <small id="graph-scale">Zoom 100% • função quadrática</small>
+            </form>
+            <button class="reset-view" type="button" id="reset-view">Centralizar visão</button>
+          </div>
+          <div class="graph-mode-status" id="graph-mode-status" role="status" aria-live="polite">
+            <span class="mode-status-dot" aria-hidden="true"></span>
+            <span>Modo de edição desativado.</span>
+          </div>
+        </div>
+
+        <div class="graph-layout">
+          <div class="canvas-card">
+            <div class="canvas-stage" id="canvas-stage">
+              <canvas id="parabola-canvas" width="760" height="500" aria-describedby="graph-description graph-interaction-help">Seu navegador não oferece suporte ao elemento canvas.</canvas>
+              <p class="canvas-badge" id="canvas-badge" hidden></p>
+            </div>
+            <p class="sr-only" id="graph-description">Gráfico da função y igual a x ao quadrado mais 3x menos 10, com raízes 2 e menos 5 e vértice em menos 1,5 e menos 12,25.</p>
+            <p class="graph-interaction-help" id="graph-interaction-help">Arraste qualquer bolinha roxa. Alinhadas, elas formam uma reta; fora do alinhamento, formam uma parábola. A roda controla o zoom e o botão do meio move o plano.</p>
+            <div class="graph-legend" aria-hidden="true">
+              <span><i class="legend-line"></i>Parábola</span>
+              <span><i class="legend-dot root-dot"></i>Raiz</span>
+              <span><i class="legend-dot vertex-dot"></i>Vértice</span>
+              <span class="edit-legend"><i class="legend-dot handle-dot"></i>Controle</span>
+            </div>
+          </div>
+          <aside class="graph-facts">
+            <article>
+              <span class="fact-icon" aria-hidden="true">V</span>
+              <div><small>Vértice</small><strong id="vertex-value">V(−1,5; −12,25)</strong><p>É o ponto de mínimo ou máximo da parábola.</p></div>
+            </article>
+            <article>
+              <span class="fact-icon" aria-hidden="true">↕</span>
+              <div><small>Concavidade</small><strong id="opening-value">Para cima</strong><p id="opening-text">Como a é positivo, a curva se abre para cima.</p></div>
+            </article>
+            <article>
+              <span class="fact-icon" aria-hidden="true">y</span>
+              <div><small>Encontro com o eixo y</small><strong id="y-intercept-value">(0; −10)</strong><p>Esse ponto sempre corresponde ao coeficiente c.</p></div>
+            </article>
+          </aside>
+        </div>
+
+        <div class="delta-graph-card" aria-labelledby="delta-graph-title">
+          <div class="mini-graph" id="mini-graph" aria-hidden="true">
+            <span class="mini-axis"></span>
+            <svg viewBox="0 0 150 90"><path id="mini-curve" d="M20 8 Q75 142 130 8"/><circle id="mini-root-1" cx="43" cy="69" r="4"/><circle id="mini-root-2" cx="107" cy="69" r="4"/></svg>
+          </div>
+          <div>
+            <p class="small-label">Relação entre delta e gráfico</p>
+            <h3 id="delta-graph-title">Δ &gt; 0: dois encontros com o eixo x</h3>
+            <p id="delta-graph-text">Como existem duas raízes reais diferentes, a parábola cruza o eixo x em dois pontos.</p>
+          </div>
+          <div class="delta-key" aria-label="Legenda dos casos de delta">
+            <span class="is-current" data-case="positive"><i>2</i> Δ &gt; 0</span>
+            <span data-case="zero"><i>1</i> Δ = 0</span>
+            <span data-case="negative"><i>0</i> Δ &lt; 0</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="practice-section" id="pratica" aria-labelledby="practice-title">
+      <div class="section practice-inner">
+        <div class="section-heading section-heading-light">
+          <p class="section-kicker">05 — Hora de testar</p>
+          <h2 id="practice-title">Agora é sua vez</h2>
+          <p>Resolva a questão. Se algo não bater, você recebe uma pista sobre o passo a revisar.</p>
+        </div>
+
+        <div class="practice-grid">
+          <article class="exercise-card">
+            <div class="exercise-topline">
+              <span>Questão atual</span>
+              <button class="text-button" id="new-exercise" type="button">↻ Nova questão</button>
+            </div>
+            <p class="exercise-prompt">Resolva a equação:</p>
+            <p class="formula exercise-equation" id="exercise-equation">x² − 5x + 6 = 0</p>
+
+            <form id="exercise-form" novalidate>
+              <div class="exercise-inputs">
+                <label for="answer-delta"><span>Qual é o valor de Δ?</span><span class="answer-input"><strong>Δ =</strong><input id="answer-delta" type="text" inputmode="decimal" autocomplete="off"></span></label>
+                <label for="answer-x1"><span>Qual é x₁?</span><span class="answer-input"><strong>x₁ =</strong><input id="answer-x1" type="text" inputmode="decimal" autocomplete="off"></span></label>
+                <label for="answer-x2"><span>Qual é x₂?</span><span class="answer-input"><strong>x₂ =</strong><input id="answer-x2" type="text" inputmode="decimal" autocomplete="off"></span></label>
+              </div>
+              <button class="button button-practice" type="submit">Verificar resposta</button>
+            </form>
+            <div class="feedback" id="exercise-feedback" role="status" aria-live="polite" hidden></div>
+          </article>
+
+          <aside class="score-card" aria-label="Sua pontuação">
+            <span class="score-icon" aria-hidden="true">★</span>
+            <p>Sua pontuação</p>
+            <div class="score-values">
+              <span><strong id="correct-count">0</strong>Acertos</span>
+              <span><strong id="attempt-count">0</strong>Tentativas</span>
+            </div>
+            <p class="score-message" id="score-message">Cada tentativa faz parte do aprendizado.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section summary-section" aria-labelledby="summary-title">
+      <div class="summary-card">
+        <div class="summary-title-wrap">
+          <span aria-hidden="true">✓</span>
+          <div><p class="section-kicker">Resumo da aula</p><h2 id="summary-title">Guarde isso</h2></div>
+        </div>
+        <div class="summary-formulas">
+          <p><span>Equação</span><strong>ax² + bx + c = 0</strong></p>
+          <p><span>Delta</span><strong>Δ = b² − 4ac</strong></p>
+          <p><span>Bhaskara</span><strong>x = (−b ± √Δ) / 2a</strong></p>
+        </div>
+        <ul class="summary-rules">
+          <li><span>Δ &gt; 0</span> duas raízes reais</li>
+          <li><span>Δ = 0</span> uma raiz real dupla</li>
+          <li><span>Δ &lt; 0</span> nenhuma raiz real</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><span aria-hidden="true">x²</span> Matemática Interativa</p>
+    <p>Aprenda experimentando.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
