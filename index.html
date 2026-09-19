@@ -229,6 +229,9 @@
             <button class="graph-tool graph-tool-clear" id="clear-graph-mode" type="button" hidden>
               Encerrar edição
             </button>
+            <button class="graph-tool touch-edit-toggle" id="touch-edit-toggle" type="button" aria-pressed="false" hidden>
+              Ativar toque no gráfico
+            </button>
           </div>
           <div class="graph-live-card">
             <form class="graph-equation-editor" id="graph-equation-form" novalidate>
@@ -240,7 +243,11 @@
               <small class="graph-equation-feedback" id="graph-equation-feedback" role="status" aria-live="polite">Exemplos: y = x² + 3x − 10 ou y = 2x + 3</small>
               <small id="graph-scale">Zoom 100% • função quadrática</small>
             </form>
-            <button class="reset-view" type="button" id="reset-view">Centralizar visão</button>
+            <div class="graph-view-controls" role="group" aria-label="Controles de visualização do gráfico">
+              <button type="button" id="zoom-out" aria-label="Afastar gráfico">−</button>
+              <button type="button" id="zoom-in" aria-label="Aproximar gráfico">+</button>
+              <button class="reset-view" type="button" id="reset-view">Centralizar visão</button>
+            </div>
           </div>
           <div class="graph-mode-status" id="graph-mode-status" role="status" aria-live="polite">
             <span class="mode-status-dot" aria-hidden="true"></span>
@@ -255,7 +262,7 @@
               <p class="canvas-badge" id="canvas-badge" hidden></p>
             </div>
             <p class="sr-only" id="graph-description">Gráfico da função y igual a x ao quadrado mais 3x menos 10, com raízes 2 e menos 5 e vértice em menos 1,5 e menos 12,25.</p>
-            <p class="graph-interaction-help" id="graph-interaction-help">Arraste qualquer bolinha roxa. Alinhadas, elas formam uma reta; fora do alinhamento, formam uma parábola. A roda controla o zoom e o botão do meio move o plano.</p>
+            <p class="graph-interaction-help" id="graph-interaction-help">No computador, arraste as bolinhas roxas, use a roda para dar zoom e o botão do meio para mover o plano. No celular, use os botões de zoom e ative o toque no gráfico apenas quando quiser editá-lo.</p>
             <div class="graph-legend" aria-hidden="true">
               <span><i class="legend-line"></i>Parábola</span>
               <span><i class="legend-dot root-dot"></i>Raiz</span>
@@ -317,9 +324,9 @@
 
             <form id="exercise-form" novalidate>
               <div class="exercise-inputs">
-                <label for="answer-delta"><span>Qual é o valor de Δ?</span><span class="answer-input"><strong>Δ =</strong><input id="answer-delta" type="text" inputmode="decimal" autocomplete="off"></span></label>
-                <label for="answer-x1"><span>Qual é x₁?</span><span class="answer-input"><strong>x₁ =</strong><input id="answer-x1" type="text" inputmode="decimal" autocomplete="off"></span></label>
-                <label for="answer-x2"><span>Qual é x₂?</span><span class="answer-input"><strong>x₂ =</strong><input id="answer-x2" type="text" inputmode="decimal" autocomplete="off"></span></label>
+                <label for="answer-delta"><span>Qual é o valor de Δ?</span><span class="answer-input"><strong>Δ =</strong><input id="answer-delta" type="text" inputmode="decimal" autocomplete="off" aria-describedby="answer-delta-hint"></span><small class="answer-hint" id="answer-delta-hint" hidden></small></label>
+                <label for="answer-x1"><span>Qual é x₁?</span><span class="answer-input"><strong>x₁ =</strong><input id="answer-x1" type="text" inputmode="decimal" autocomplete="off" aria-describedby="answer-x1-hint"></span><small class="answer-hint" id="answer-x1-hint" hidden></small></label>
+                <label for="answer-x2"><span>Qual é x₂?</span><span class="answer-input"><strong>x₂ =</strong><input id="answer-x2" type="text" inputmode="decimal" autocomplete="off" aria-describedby="answer-x2-hint"></span><small class="answer-hint" id="answer-x2-hint" hidden></small></label>
               </div>
               <button class="button button-practice" type="submit">Verificar resposta</button>
             </form>

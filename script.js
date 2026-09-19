@@ -25,6 +25,7 @@ const elements = {
   dragMode: document.querySelector("#drag-mode"),
   pointsMode: document.querySelector("#points-mode"),
   clearGraphMode: document.querySelector("#clear-graph-mode"),
+  touchEditToggle: document.querySelector("#touch-edit-toggle"),
   graphModeHelp: document.querySelector("#graph-mode-help"),
   graphModeStatus: document.querySelector("#graph-mode-status"),
   canvasBadge: document.querySelector("#canvas-badge"),
@@ -33,6 +34,8 @@ const elements = {
   graphEquationFeedback: document.querySelector("#graph-equation-feedback"),
   graphScale: document.querySelector("#graph-scale"),
   resetView: document.querySelector("#reset-view"),
+  zoomIn: document.querySelector("#zoom-in"),
+  zoomOut: document.querySelector("#zoom-out"),
   deltaGraphTitle: document.querySelector("#delta-graph-title"),
   deltaGraphText: document.querySelector("#delta-graph-text"),
   miniCurve: document.querySelector("#mini-curve"),
@@ -44,6 +47,9 @@ const elements = {
   answerDelta: document.querySelector("#answer-delta"),
   answerX1: document.querySelector("#answer-x1"),
   answerX2: document.querySelector("#answer-x2"),
+  answerDeltaHint: document.querySelector("#answer-delta-hint"),
+  answerX1Hint: document.querySelector("#answer-x1-hint"),
+  answerX2Hint: document.querySelector("#answer-x2-hint"),
   exerciseFeedback: document.querySelector("#exercise-feedback"),
   correctCount: document.querySelector("#correct-count"),
   attemptCount: document.querySelector("#attempt-count"),
@@ -58,6 +64,7 @@ const state = {
   score: { correct: 0, attempts: 0 },
   graph: {
     mode: null,
+    touchLocked: false,
     points: [],
     editPoints: [],
     dragPointIndex: null,
@@ -73,6 +80,29 @@ const state = {
     zoomAnimationFrame: null
   }
 };
+
+const scoreStorageKey = "matematica-interativa:score:v1";
+const coarsePointer = window.matchMedia("(pointer: coarse)");
+
+function loadScore() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(scoreStorageKey));
+    if (saved && Number.isSafeInteger(saved.correct) && Number.isSafeInteger(saved.attempts)
+      && saved.correct >= 0 && saved.attempts >= saved.correct) {
+      state.score = { correct: saved.correct, attempts: saved.attempts };
+    }
+  } catch (_) {
+    // O exercício continua disponível quando o armazenamento está bloqueado.
+  }
+}
+
+function saveScore() {
+  try {
+    localStorage.setItem(scoreStorageKey, JSON.stringify(state.score));
+  } catch (_) {
+    // A pontuação continua válida durante a sessão atual.
+  }
+}
 
 function normalizeZero(value) {
   return Math.abs(value) < 1e-10 ? 0 : value;
@@ -678,9 +708,19 @@ function updateGraphStatus(message, active = true) {
   elements.graphModeStatus.lastElementChild.textContent = message;
 }
 
+function updateTouchEditing() {
+  const available = coarsePointer.matches && Boolean(state.graph.mode);
+  if (!available) state.graph.touchLocked = false;
+  elements.touchEditToggle.hidden = !available;
+  elements.touchEditToggle.setAttribute("aria-pressed", String(state.graph.touchLocked));
+  elements.touchEditToggle.textContent = state.graph.touchLocked ? "Voltar a rolar a página" : "Ativar toque no gráfico";
+  elements.canvas.classList.toggle("is-touch-locked", state.graph.touchLocked);
+}
+
 function setGraphMode(mode) {
   const isSameMode = state.graph.mode === mode;
   state.graph.mode = isSameMode ? null : mode;
+  state.graph.touchLocked = false;
   state.graph.points = [];
   state.graph.editPoints = [];
   state.graph.dragPointIndex = null;
@@ -697,6 +737,7 @@ function setGraphMode(mode) {
   elements.canvas.classList.remove("is-dragging");
   elements.canvasCard.classList.toggle("is-editing", Boolean(state.graph.mode));
   elements.canvas.tabIndex = state.graph.mode ? 0 : -1;
+  updateTouchEditing();
 
   if (isDragMode) {
     elements.graphModeHelp.textContent = "Arraste qualquer bolinha roxa. Alinhe as três para criar uma reta; retire qualquer uma do alinhamento para voltar à parábola.";
@@ -856,6 +897,7 @@ function handleCanvasPointerDown(event) {
     return;
   }
   if (!state.graph.mode) return;
+  if (event.pointerType === "touch" && !state.graph.touchLocked) return;
   const point = getGraphPointFromPointer(event, state.graph.mode === "points");
   if (!point) return;
   event.preventDefault();
@@ -901,6 +943,7 @@ function handleCanvasPointerMove(event) {
     }
     return;
   }
+  if (event.pointerType === "touch" && !state.graph.touchLocked) return;
   if (!state.graph.mode) return;
   const point = getGraphPointFromPointer(event, state.graph.mode === "points");
   if (!point) return;
@@ -1131,6 +1174,10 @@ function generateExercise() {
     input.value = "";
     input.removeAttribute("aria-invalid");
   });
+  [elements.answerDeltaHint, elements.answerX1Hint, elements.answerX2Hint].forEach((hint) => {
+    hint.hidden = true;
+    hint.textContent = "";
+  });
   elements.exerciseFeedback.hidden = true;
   elements.answerX2.closest("label").hidden = roots.length === 1;
   elements.answerX1.closest("label").querySelector("span:first-child").textContent = roots.length === 1 ? "Qual é a raiz dupla?" : "Qual é x₁?";
@@ -1152,10 +1199,14 @@ function checkExercise(event) {
   state.score.attempts += 1;
 
   [
-    [elements.answerDelta, deltaCorrect],
-    [elements.answerX1, x1Correct],
-    [elements.answerX2, x2Correct]
-  ].forEach(([input, correct]) => input.setAttribute("aria-invalid", String(!correct)));
+    [elements.answerDelta, elements.answerDeltaHint, deltaCorrect, "Confira Δ = b² − 4ac."],
+    [elements.answerX1, elements.answerX1Hint, x1Correct, "Use +√Δ no numerador de x₁."],
+    [elements.answerX2, elements.answerX2Hint, x2Correct, "Use −√Δ no numerador de x₂."]
+  ].forEach(([input, hint, correct, message]) => {
+    input.setAttribute("aria-invalid", String(!correct));
+    hint.hidden = correct || input.closest("label").hidden;
+    hint.textContent = hint.hidden ? "" : message;
+  });
 
   elements.exerciseFeedback.hidden = false;
   if (deltaCorrect && x1Correct && x2Correct) {
@@ -1173,6 +1224,7 @@ function checkExercise(event) {
     }
   }
   updateScore();
+  saveScore();
 }
 
 function updateScore() {
@@ -1214,6 +1266,15 @@ elements.form.addEventListener("submit", (event) => {
 document.querySelectorAll(".example-button").forEach((button) => button.addEventListener("click", () => setExample(button)));
 elements.nextStep.addEventListener("click", showNextStep);
 elements.exerciseForm.addEventListener("submit", checkExercise);
+[
+  [elements.answerDelta, elements.answerDeltaHint],
+  [elements.answerX1, elements.answerX1Hint],
+  [elements.answerX2, elements.answerX2Hint]
+].forEach(([input, hint]) => input.addEventListener("input", () => {
+  input.removeAttribute("aria-invalid");
+  hint.hidden = true;
+  hint.textContent = "";
+}));
 elements.newExercise.addEventListener("click", generateExercise);
 elements.graphEquationForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -1233,6 +1294,14 @@ elements.graphEquationInput.addEventListener("blur", () => {
 elements.dragMode.addEventListener("click", () => setGraphMode("drag"));
 elements.pointsMode.addEventListener("click", () => setGraphMode("points"));
 elements.clearGraphMode.addEventListener("click", () => setGraphMode(null));
+elements.touchEditToggle.addEventListener("click", () => {
+  state.graph.touchLocked = !state.graph.touchLocked;
+  updateTouchEditing();
+  updateGraphStatus(state.graph.touchLocked
+    ? "Toque no gráfico ativado. Para rolar a página novamente, toque em ‘Voltar a rolar a página’."
+    : "Rolagem da página ativada. O gráfico não será alterado por toques acidentais.");
+});
+coarsePointer.addEventListener?.("change", updateTouchEditing);
 elements.canvas.addEventListener("pointerdown", handleCanvasPointerDown);
 elements.canvas.addEventListener("pointermove", handleCanvasPointerMove);
 elements.canvas.addEventListener("pointerup", handleCanvasPointerUp);
@@ -1249,8 +1318,13 @@ elements.canvas.addEventListener("auxclick", (event) => {
   if (event.button === 1) event.preventDefault();
 });
 elements.resetView.addEventListener("click", resetGraphView);
+elements.zoomIn.addEventListener("click", () => setGraphZoom(state.graph.zoom * 125));
+elements.zoomOut.addEventListener("click", () => setGraphZoom(state.graph.zoom * 80));
 window.addEventListener("resize", handleResize);
 
+loadScore();
+updateScore();
+updateTouchEditing();
 calculateAndRender();
 generateExercise();
 setupProgressObserver();
