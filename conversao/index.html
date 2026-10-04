@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Converta medidas de comprimento, volume, massa, temperatura, energia e outras grandezas com exemplos e explicações.">
+  <meta name="theme-color" content="#f7f8f4">
+  <title>Conversor de Medidas | Matemática em Ação</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="Caderno de Matemática, voltar à página inicial">
+        <span class="brand-icon" aria-hidden="true">↔</span>
+        <span>Matemática <strong>em Ação</strong></span>
+      </a>
+      <nav class="step-nav" aria-label="Navegação da página">
+        <a href="#conversor">Conversor</a>
+        <a href="#escala-metrica">Escala métrica</a>
+        <a href="#pratique">Pratique</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero section" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> UM LABORATÓRIO DE MEDIDAS</p>
+        <h1 id="hero-title">Cada medida, <span>no seu lugar.</span></h1>
+        <p class="hero-lead">Escolha uma grandeza, informe o valor e veja como passar de uma unidade para outra — com o caminho explicado.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#conversor">Começar a converter <span aria-hidden="true">↓</span></a>
+          <a class="button button-secondary" href="#escala-metrica">Ver a escala métrica</a>
+        </div>
+        <ul class="hero-points" aria-label="O que você pode fazer">
+          <li>13 tipos de conversão</li>
+          <li>Resultado e etapas sincronizados</li>
+          <li>Exemplos para praticar</li>
+        </ul>
+      </div>
+      <div class="hero-card" aria-label="Exemplo de conversão: 2,5 metros equivalem a 250 centímetros">
+        <span class="hero-card-label">UMA CONVERSÃO EM 3 PASSOS</span>
+        <p class="hero-equation"><strong>2,5 m</strong><span aria-hidden="true">→</span><strong>250 cm</strong></p>
+        <div class="metric-preview" aria-hidden="true">
+          <span>km</span><i></i><span>hm</span><i></i><span>dam</span><i></i><span class="is-current">m</span><i></i><span>dm</span><i></i><span>cm</span><i></i><span>mm</span>
+        </div>
+        <p class="hero-card-note">Cada casa para a direita multiplica por 10.</p>
+      </div>
+    </section>
+
+    <section class="section converter-section" id="conversor" aria-labelledby="converter-title">
+      <div class="section-heading">
+        <p class="section-number">01 / EXPERIMENTE</p>
+        <h2 id="converter-title">O que você quer converter?</h2>
+        <p>Escolha uma categoria e ajuste as unidades. O resultado e a explicação acompanham seus valores.</p>
+      </div>
+
+      <div class="converter-layout">
+        <aside class="category-panel paper-card" aria-labelledby="category-title">
+          <div class="panel-title">
+            <div><p class="card-kicker">GRANDEZAS</p><h3 id="category-title">Conversor</h3></div>
+            <span class="category-count" id="category-count">13</span>
+          </div>
+          <nav class="category-list" id="category-list" aria-label="Categorias de conversão"></nav>
+        </aside>
+
+        <div class="converter-workspace">
+          <article class="conversion-card paper-card">
+            <div class="conversion-heading">
+              <div>
+                <span class="card-kicker" id="category-kicker">MOEDA</span>
+                <h3 id="category-name">Moeda</h3>
+                <p class="category-description" id="category-description"></p>
+              </div>
+              <span class="conversion-symbol" id="category-symbol" aria-hidden="true">$</span>
+            </div>
+
+            <form id="conversion-form" novalidate>
+              <div class="value-field">
+                <label for="amount-input">Valor para converter</label>
+                <input id="amount-input" name="amount" type="text" inputmode="decimal" value="1" autocomplete="off" aria-describedby="amount-hint amount-error">
+                <small id="amount-hint" class="field-hint">Use vírgula ou ponto para casas decimais; não use separador de milhar.</small>
+                <small id="amount-error" class="field-error" role="alert"></small>
+              </div>
+
+              <div class="unit-row">
+                <div class="unit-field">
+                  <label for="from-unit">De</label>
+                  <select id="from-unit" name="from-unit"></select>
+                </div>
+                <button class="swap-button" id="swap-units" type="button" aria-label="Trocar as unidades de origem e destino" title="Trocar unidades">
+                  <span aria-hidden="true">⇄</span>
+                </button>
+                <div class="unit-field">
+                  <label for="to-unit">Para</label>
+                  <select id="to-unit" name="to-unit"></select>
+                </div>
+              </div>
+
+              <div class="currency-field" id="currency-field" hidden>
+                <label for="currency-rate">Taxa de câmbio <span>(1 unidade de origem vale quantas unidades de destino?)</span></label>
+                <div class="rate-row">
+                  <input id="currency-rate" type="text" inputmode="decimal" autocomplete="off" aria-describedby="currency-status">
+                  <button class="button button-small" id="fetch-rate" type="button">Buscar cotação</button>
+                </div>
+                <p class="field-hint" id="currency-status" role="status" aria-live="polite">A cotação online precisa de conexão. Você também pode informar a taxa manualmente.</p>
+              </div>
+
+              <p class="field-error form-error" id="conversion-error" role="alert" hidden></p>
+              <button class="button button-primary convert-button" type="submit">Converter medida <span aria-hidden="true">→</span></button>
+            </form>
+
+            <div class="result-panel" aria-live="polite" aria-atomic="true">
+              <span class="result-label">RESULTADO</span>
+              <p class="result-value" id="result-value">—</p>
+              <p class="result-caption" id="result-caption">Informe um valor e escolha as unidades.</p>
+            </div>
+          </article>
+
+          <article class="steps-card paper-card" aria-labelledby="steps-title">
+            <div class="steps-heading">
+              <div><p class="card-kicker">ENTENDA O CAMINHO</p><h3 id="steps-title">Como chegamos lá?</h3></div>
+              <span class="step-counter" id="step-counter">Passo 1 de 3</span>
+            </div>
+            <ol class="solution-steps" id="solution-steps">
+              <li class="solution-step is-current"><span>1</span><p>Escolha o valor e as unidades para ver a resolução.</p></li>
+              <li class="solution-step"><span>2</span><p>A conversão é feita usando uma unidade de referência.</p></li>
+              <li class="solution-step"><span>3</span><p>O valor convertido aparece com a unidade de destino.</p></li>
+            </ol>
+            <button class="next-step-button" id="next-step" type="button">Próximo passo <span aria-hidden="true">→</span></button>
+          </article>
+        </div>
+      </div>
+
+      <div class="examples-block">
+        <div><p class="card-kicker">ATALHOS DE EXEMPLO</p><h3>Experimente uma conversão</h3></div>
+        <div class="example-list" id="example-list" aria-label="Exemplos rápidos"></div>
+      </div>
+    </section>
+
+    <section class="metric-band" id="escala-metrica" aria-labelledby="metric-title">
+      <div class="section metric-section">
+        <div class="section-heading">
+          <p class="section-number">02 / DESCUBRA O PADRÃO</p>
+          <h2 id="metric-title">A escada das unidades métricas</h2>
+          <p>A imagem de referência mostra as unidades organizadas em sequência. Conte os passos entre elas para saber quantas casas decimais mover.</p>
+        </div>
+        <div class="metric-ladders" aria-label="Escalas de conversão do sistema métrico">
+          <article class="ladder-card">
+            <h3>Comprimento</h3><p>Entre casas vizinhas, multiplique ou divida por 10.</p>
+            <ol class="ladder-units" aria-label="Quilômetro, hectômetro, decâmetro, metro, decímetro, centímetro e milímetro"><li>km</li><li>hm</li><li>dam</li><li>m</li><li>dm</li><li>cm</li><li>mm</li></ol>
+            <p class="ladder-rule"><span>→ para a direita: × 10 por passo</span><span>← para a esquerda: ÷ 10 por passo</span></p>
+          </article>
+          <article class="ladder-card">
+            <h3>Área</h3><p>Como as unidades estão ao quadrado, cada passo muda por 100.</p>
+            <ol class="ladder-units" aria-label="Quilômetro quadrado, hectômetro quadrado, decâmetro quadrado, metro quadrado, decímetro quadrado, centímetro quadrado e milímetro quadrado"><li>km²</li><li>hm²</li><li>dam²</li><li>m²</li><li>dm²</li><li>cm²</li><li>mm²</li></ol>
+            <p class="ladder-rule"><span>→ para a direita: × 100 por passo</span><span>← para a esquerda: ÷ 100 por passo</span></p>
+          </article>
+          <article class="ladder-card">
+            <h3>Volume</h3><p>Nas unidades cúbicas, cada passo muda por 1.000.</p>
+            <ol class="ladder-units" aria-label="Quilômetro cúbico, hectômetro cúbico, decâmetro cúbico, metro cúbico, decímetro cúbico, centímetro cúbico e milímetro cúbico"><li>km³</li><li>hm³</li><li>dam³</li><li>m³</li><li>dm³</li><li>cm³</li><li>mm³</li></ol>
+            <p class="ladder-rule"><span>→ para a direita: × 1.000 por passo</span><span>← para a esquerda: ÷ 1.000 por passo</span></p>
+          </article>
+          <article class="ladder-card">
+            <h3>Massa</h3><p>A sequência avança de dez em dez entre unidades vizinhas.</p>
+            <ol class="ladder-units" aria-label="Quilograma, hectograma, decagrama, grama, decigrama, centigrama e miligrama"><li>kg</li><li>hg</li><li>dag</li><li>g</li><li>dg</li><li>cg</li><li>mg</li></ol>
+            <p class="ladder-rule"><span>→ para a direita: × 10 por passo</span><span>← para a esquerda: ÷ 10 por passo</span></p>
+          </article>
+          <article class="ladder-card capacity-card">
+            <h3>Capacidade</h3><p>Litro e seus múltiplos e submúltiplos também seguem dez em dez.</p>
+            <ol class="ladder-units" aria-label="Quilolitro, hectolitro, decalitro, litro, decilitro, centilitro e mililitro"><li>kL</li><li>hL</li><li>daL</li><li>L</li><li>dL</li><li>cL</li><li>mL</li></ol>
+            <p class="ladder-note">1 L = 1 dm³ &nbsp;·&nbsp; 1 mL = 1 cm³</p>
+          </article>
+        </div>
+        <aside class="metric-tip" role="note"><span aria-hidden="true">i</span><p><strong>Dica:</strong> a escada vale para unidades métricas. Para temperatura, moedas e outras grandezas, usamos relações diferentes — selecione a categoria no conversor para ver a regra correspondente.</p></aside>
+      </div>
+    </section>
+
+    <section class="section practice-section" id="pratique" aria-labelledby="practice-title">
+      <div class="section-heading">
+        <p class="section-number">03 / HORA DE TESTAR</p>
+        <h2 id="practice-title">Agora é sua vez</h2>
+        <p>Use a regra que acabou de explorar. Você recebe uma pista se o resultado não estiver certo.</p>
+      </div>
+      <div class="practice-grid">
+        <article class="exercise-card paper-card">
+          <div class="exercise-topline"><span>QUESTÃO ATUAL</span><button class="text-button" id="new-exercise" type="button">Nova questão <span aria-hidden="true">↻</span></button></div>
+          <p class="exercise-prompt" id="exercise-prompt"></p>
+          <form id="exercise-form" novalidate>
+            <label for="exercise-answer">Sua resposta</label>
+            <div class="answer-row"><input id="exercise-answer" type="text" inputmode="decimal" autocomplete="off" aria-describedby="exercise-hint exercise-feedback"><span id="exercise-unit"></span></div>
+            <small class="field-hint" id="exercise-hint">Você pode usar vírgula ou ponto decimal.</small>
+            <button class="button button-primary" type="submit">Conferir resposta</button>
+          </form>
+          <p class="exercise-feedback" id="exercise-feedback" role="status" aria-live="polite" hidden></p>
+        </article>
+        <aside class="score-card" aria-label="Pontuação da prática">
+          <span class="score-mark" aria-hidden="true">✓</span><p>Sua prática</p>
+          <div class="score-values"><span><strong id="correct-count">0</strong>acertos</span><span><strong id="attempt-count">0</strong>tentativas</span></div>
+          <p id="score-message">Cada tentativa ajuda a fixar o que você aprendeu.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><span class="footer-mark" aria-hidden="true">↔</span> Caderno de Matemática</p>
+    <p>Aprender também é mudar de escala.</p>
+    <a href="../index.html">Voltar à aula de equação do 2º grau</a>
+  </footer>
+</body>
+</html>

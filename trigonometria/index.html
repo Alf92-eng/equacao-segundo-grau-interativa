@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Aprenda seno, cosseno e tangente com um triângulo interativo, exemplos guiados e exercícios com pistas.">
+  <title>Trigonometria | Matemática em Ação</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="Matemática em Ação, voltar ao início"><span class="brand-icon" aria-hidden="true">∠</span><span>Matemática <strong>em Ação</strong></span></a>
+      <nav class="step-nav" aria-label="Etapas da aula">
+        <a href="#entenda">Entenda</a>
+        <a href="#laboratorio">Experimente</a>
+        <a href="#pratique">Pratique</a>
+        <a href="#resumo">Guarde</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="section hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> GEOMETRIA QUE FAZ SENTIDO</p>
+        <h1 id="hero-title">Trigonometria<span class="title-dot">.</span></h1>
+        <p class="hero-lead">Um ângulo, três lados e uma forma de descobrir medidas que você ainda não conhece.</p>
+        <p class="hero-support">Comece pelas razões no triângulo retângulo. Depois, mova o ponto e veja cada conta acompanhar a figura.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#entenda">Começar a aula <span aria-hidden="true">↗</span></a><span>Leitura + experimentação + prática</span></div>
+        <div class="learning-goals" aria-label="Objetivos da aula">
+          <span>Identificar os lados</span><span>Calcular 3 razões</span><span>Interpretar medidas</span><span>Resolver problemas</span>
+        </div>
+      </div>
+      <div class="hero-visual" role="img" aria-label="Ilustração de um triângulo retângulo com ângulo de 30 graus, hipotenusa 10, cateto oposto 5 e cateto adjacente aproximadamente 8,66">
+        <span class="hero-tag">UM TRIÂNGULO, MUITAS DESCOBERTAS</span>
+        <svg viewBox="0 0 440 335" aria-hidden="true" focusable="false">
+          <defs><pattern id="hero-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#dde7e0" stroke-width="1"/></pattern></defs>
+          <rect x="14" y="15" width="412" height="304" rx="19" fill="url(#hero-grid)"/>
+          <path d="M 70 269 L 344 269 L 344 111 Z" fill="#e8f4ea" stroke="#295b48" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M 328 269 L 328 253 L 344 253" fill="none" stroke="#295b48" stroke-width="2"/>
+          <path d="M 111 269 A 41 41 0 0 0 105 249" fill="none" stroke="#ce764c" stroke-width="3"/>
+          <circle cx="70" cy="269" r="5" fill="#295b48"/><circle cx="344" cy="111" r="6" fill="#ce764c"/>
+          <text x="130" y="253" fill="#b2603b" font-size="16" font-weight="700" text-anchor="middle" dominant-baseline="middle">30°</text>
+          <text x="195" y="293" fill="#295b48" font-size="16" font-weight="700">adjacente ≈ 8,66</text>
+          <text x="352" y="194" fill="#b2603b" font-size="16" font-weight="700">oposto = 5</text>
+          <text x="201" y="180" fill="#244e83" font-size="17" font-weight="700" text-anchor="middle" dominant-baseline="middle" transform="rotate(-30 201 180)">hipotenusa = 10</text>
+        </svg>
+        <span class="hero-formula">sen 30° = <strong>5/10 = 0,5</strong></span>
+      </div>
+    </section>
+
+    <section class="section" id="entenda" aria-labelledby="concept-title">
+      <div class="section-heading"><p class="section-number">01 / ENTENDA</p><h2 id="concept-title">Primeiro, escolha o ângulo</h2><p>Os nomes <strong>oposto</strong> e <strong>adjacente</strong> dependem do ângulo observado. A hipotenusa permanece do lado oposto ao ângulo reto.</p></div>
+      <div class="concept-layout">
+        <article class="paper-card concept-card">
+          <div class="concept-top"><span class="card-kicker">A IDEIA CENTRAL</span><span class="angle-badge">θ = teta</span></div>
+          <h3>Razões com significado</h3>
+          <p>Uma razão compara dois comprimentos do mesmo triângulo. Para um ângulo agudo <strong>θ</strong>:</p>
+          <div class="formula-stack">
+            <div><span class="formula-name">sen θ</span><span class="equals">=</span><span class="fraction"><span>cateto oposto</span><span>hipotenusa</span></span></div>
+            <div><span class="formula-name">cos θ</span><span class="equals">=</span><span class="fraction"><span>cateto adjacente</span><span>hipotenusa</span></span></div>
+            <div><span class="formula-name">tg θ</span><span class="equals">=</span><span class="fraction"><span>cateto oposto</span><span>cateto adjacente</span></span></div>
+          </div>
+          <p class="concept-foot">Se os lados aumentarem na mesma proporção, essas três razões continuam iguais. Elas dependem do ângulo.</p>
+        </article>
+        <div class="term-grid">
+          <article class="term-card"><span class="term-mark blue">H</span><div><h3>Hipotenusa</h3><p>Maior lado do triângulo retângulo, sempre em frente ao ângulo de 90°.</p></div></article>
+          <article class="term-card"><span class="term-mark orange">O</span><div><h3>Cateto oposto</h3><p>Fica em frente ao ângulo θ que você escolheu.</p></div></article>
+          <article class="term-card"><span class="term-mark green">A</span><div><h3>Cateto adjacente</h3><p>Toca o ângulo θ e não é a hipotenusa.</p></div></article>
+          <article class="term-card note"><span class="term-mark pale">90°</span><div><h3>Onde a regra vale?</h3><p>Na figura, usamos 0° &lt; θ &lt; 90°. Nos extremos, o triângulo se achata; a tabela de ângulos notáveis usa a extensão pelo círculo unitário.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-band" id="laboratorio" aria-labelledby="lab-title"><div class="section lab-section">
+      <div class="section-heading"><p class="section-number">02 / EXPERIMENTE</p><h2 id="lab-title">Mude o ângulo. Acompanhe os lados.</h2><p>Escolha a hipotenusa e o ângulo θ. Arraste o ponto da figura com o mouse; no toque, ative a edição primeiro. Os campos também funcionam pelo teclado.</p></div>
+      <div class="lab-layout">
+        <div class="lab-controls paper-card">
+          <div class="panel-title"><span class="card-kicker">SEU TRIÂNGULO</span><span class="panel-step">01 / 02</span></div>
+          <div class="field"><label for="angle-input">Ângulo θ <span>(em graus)</span></label><div class="input-unit"><input id="angle-input" name="angle" type="text" inputmode="decimal" value="30" autocomplete="off" aria-describedby="angle-error"><span>°</span></div><small id="angle-error" class="field-error"></small></div>
+          <label class="range-label" for="angle-range">Deslize para explorar o ângulo</label>
+          <input id="angle-range" class="angle-range" type="range" min="0.1" max="89.9" step="0.1" value="30" aria-label="Ângulo em graus">
+          <div class="range-ends"><span>quase 0°</span><span>quase 90°</span></div>
+          <div class="field"><label for="hypotenuse-input">Hipotenusa <span>(em unidades)</span></label><div class="input-unit"><input id="hypotenuse-input" name="hypotenuse" type="text" inputmode="decimal" value="10" autocomplete="off" aria-describedby="hypotenuse-error"><span>u</span></div><small id="hypotenuse-error" class="field-error"></small></div>
+          <p class="input-note">Nesta figura, use 0,1° a 89,9° e hipotenusa de 0,01 a 10.000 unidades. Escreva decimais com vírgula e números grandes sem ponto de milhar.</p>
+          <div class="presets"><p>Experimente estes casos</p><div class="preset-list"><button type="button" data-angle="30" data-hypotenuse="10">30° · H 10</button><button type="button" data-angle="45" data-hypotenuse="10">45° · H 10</button><button type="button" data-angle="60" data-hypotenuse="8">60° · H 8</button><button type="button" data-angle="36.86989764584402" data-hypotenuse="5">Triângulo 3–4–5</button></div></div>
+        </div>
+        <div class="visual-card paper-card">
+          <div class="visual-heading"><div><span class="card-kicker">VEJA NA FIGURA</span><h3>Os lados acompanham θ</h3></div><button id="edit-toggle" type="button" class="edit-toggle" aria-pressed="false">Ativar arraste</button></div>
+          <div class="visual-stage"><svg id="triangle-svg" viewBox="0 0 380 345" role="group" aria-labelledby="triangle-title triangle-desc"><title id="triangle-title">Triângulo retângulo interativo</title><desc id="triangle-desc">Triângulo com 30 graus, hipotenusa 10, cateto oposto 5 e adjacente aproximadamente 8,66.</desc><defs><pattern id="lab-grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M 25 0 L 0 0 0 25" fill="none" stroke="#e5eee8" stroke-width="1"/></pattern></defs><rect x="0" y="0" width="380" height="345" fill="url(#lab-grid)"/><path id="triangle-fill" fill="#e8f4ec" stroke="#2d604c" stroke-width="2.5" stroke-linejoin="round"/><path id="triangle-right" fill="none" stroke="#2d604c" stroke-width="2"/><path id="triangle-angle" fill="none" stroke="#cc7752" stroke-width="3"/><text id="label-angle" class="svg-angle" font-size="17" font-weight="700">θ</text><text id="label-adjacent" class="svg-adjacent" font-size="14" font-weight="700">adjacente</text><text id="label-opposite" class="svg-opposite" font-size="14" font-weight="700">oposto</text><text id="label-hypotenuse" class="svg-hypotenuse" font-size="14" font-weight="700">hipotenusa</text><circle cx="60" cy="290" r="4" fill="#2d604c"/><circle id="triangle-point" r="5" fill="#ce7652" stroke="white" stroke-width="2"/><circle id="triangle-hit" r="22" fill="transparent" tabindex="0" role="slider" aria-valuemin="0.1" aria-valuemax="89.9" aria-valuenow="30" aria-label="Ângulo do ponto móvel; use as setas para ajustar"/></svg></div>
+          <p id="drag-help" class="drag-help">Ative o arraste para mover o ponto com o dedo. Use as setas do teclado quando o ponto estiver em foco.</p>
+          <p id="visual-description" class="visual-description">Com θ de 30° e hipotenusa de 10 unidades, o cateto oposto mede 5 e o adjacente mede aproximadamente 8,66 unidades.</p>
+        </div>
+      </div>
+      <div class="result-panel paper-card" id="resultado"><div class="result-heading"><div><span class="card-kicker">RESULTADO ATUAL</span><h3>O que este triângulo revela</h3></div><a href="#resolucao" class="text-link">Ver conta passo a passo <span aria-hidden="true">↗</span></a></div>
+        <p id="lab-status" class="lab-status" role="alert" hidden></p>
+        <div id="result-content"><div class="measurement-grid"><div><span>Cateto oposto</span><strong id="opposite-value">5</strong><small>unidades</small></div><div><span>Cateto adjacente</span><strong id="adjacent-value">≈ 8,66</strong><small>unidades</small></div></div><div class="ratio-grid"><div><span>sen θ</span><strong id="sine-value">0,5</strong></div><div><span>cos θ</span><strong id="cosine-value">≈ 0,866</strong></div><div><span>tg θ</span><strong id="tangent-value">≈ 0,5774</strong></div></div><p id="result-meaning" class="result-meaning">Para este ângulo, o cateto oposto mede metade da hipotenusa.</p></div>
+        <p id="lab-announcement" class="sr-only" role="status" aria-live="polite"></p>
+      </div>
+      <div class="under-lab">
+        <article class="paper-card steps-panel" id="resolucao"><div class="panel-heading"><div><span class="card-kicker">EXEMPLO GUIADO</span><h3>Uma linha de cada vez</h3></div><button id="next-step" class="button button-secondary" type="button">Próximo passo ↓</button></div><div class="steps-list"><details class="step-item" open><summary><span>01</span> Separe o que já sabe</summary><p id="step-one"></p></details><details class="step-item"><summary><span>02</span> Calcule os catetos</summary><p id="step-two"></p></details><details class="step-item"><summary><span>03</span> Forme as três razões</summary><p id="step-three"></p></details><details class="step-item"><summary><span>04</span> Interprete o resultado</summary><p id="step-four"></p></details></div></article>
+        <aside class="paper-card insight-panel"><span class="insight-icon" aria-hidden="true">✳</span><span class="card-kicker">RELAÇÃO IMPORTANTE</span><h3>Os dois catetos se completam</h3><p>Do teorema de Pitágoras:</p><p class="identity">sen² θ + cos² θ = 1</p><p id="identity-proof">0,5² + 0,866² ≈ 1</p><p>Também vale <strong>tg θ = sen θ ÷ cos θ</strong> para os ângulos agudos desta aula.</p></aside>
+      </div>
+    </div></section>
+
+    <section class="section notable-section" id="notaveis" aria-labelledby="notable-title"><div class="section-heading"><p class="section-number">03 / COMPARE</p><h2 id="notable-title">Ângulos que aparecem sempre</h2><p>Valores exatos das razões mais usadas. Toque em 30°, 45° ou 60° para levá-los ao laboratório.</p></div>
+      <div class="notable-layout"><div class="table-wrap paper-card"><table><caption>Razões trigonométricas de ângulos notáveis</caption><thead><tr><th scope="col">Razão</th><th scope="col">0°</th><th scope="col"><button type="button" data-table-angle="30">30° ↗</button></th><th scope="col"><button type="button" data-table-angle="45">45° ↗</button></th><th scope="col"><button type="button" data-table-angle="60">60° ↗</button></th><th scope="col">90°</th></tr></thead><tbody><tr><th scope="row">sen</th><td>0</td><td>1/2</td><td>√2/2</td><td>√3/2</td><td>1</td></tr><tr><th scope="row">cos</th><td>1</td><td>√3/2</td><td>√2/2</td><td>1/2</td><td>0</td></tr><tr><th scope="row">tg</th><td>0</td><td>√3/3</td><td>1</td><td>√3</td><td>não definida</td></tr></tbody></table></div><aside class="table-note paper-card"><span class="card-kicker">OLHE OS EXTREMOS</span><h3>Por que tg 90° não existe?</h3><p>tg θ = sen θ ÷ cos θ. Como cos 90° = 0, a conta exigiria divisão por zero.</p><p>Em 0° e 90°, os valores da tabela vêm do <strong>círculo unitário</strong>. O laboratório usa apenas triângulos não achatados.</p></aside></div>
+    </section>
+
+    <section class="practice-band" id="pratique" aria-labelledby="practice-title">
+      <div class="section practice-section">
+        <div class="section-heading"><p class="section-number">04 / PRATIQUE</p><h2 id="practice-title">Agora é sua vez</h2><p>Resolva uma parte de cada vez. Pode escrever frações como <strong>3/5</strong> ou números decimais com vírgula.</p></div>
+        <div class="practice-layout">
+          <div class="paper-card question-card">
+            <div class="question-top"><span class="card-kicker">DESAFIO <span id="question-number">1</span> DE 3</span><span id="score" class="score">0 acertos · 0 tentativas</span></div>
+            <h3 id="question-title">Encontre as razões</h3>
+            <p id="question-prompt">Em um triângulo retângulo, em relação a θ, o cateto oposto mede 3, o adjacente mede 4 e a hipotenusa mede 5.</p>
+            <div class="question-sketch" aria-hidden="true">
+              <svg viewBox="0 0 255 180">
+                <path id="sketch-fill" d="M 15 160 L 195 160 L 195 25 Z" fill="#e8f4ec" stroke="#2d604c" stroke-width="2"/>
+                <path id="sketch-right" d="M 181 160 L 181 146 L 195 146" fill="none" stroke="#2d604c" stroke-width="2"/>
+                <text id="sketch-angle" x="45" y="154" text-anchor="middle" font-size="11">θ</text>
+                <text x="103" y="177" id="sketch-adjacent">4</text>
+                <text x="206" y="94" id="sketch-opposite">3</text>
+                <text x="98" y="83" id="sketch-hypotenuse">5</text>
+              </svg>
+            </div>
+            <form id="practice-form" novalidate>
+              <div id="practice-fields" class="practice-fields"></div>
+              <p id="practice-feedback" class="practice-feedback" role="status" aria-live="polite">Preencha as três etapas e confira sua resposta.</p>
+              <div class="practice-actions"><button class="button button-primary" type="submit">Verificar resposta</button><button id="new-question" class="button button-secondary" type="button">Nova questão ↗</button></div>
+            </form>
+          </div>
+          <aside class="practice-side"><div class="paper-card tip-card"><span class="card-kicker">UMA PISTA ANTES DE COMEÇAR</span><h3>Localize θ antes de dividir</h3><p>O lado em frente é o oposto. O cateto que toca θ é o adjacente. A hipotenusa fica em frente ao ângulo reto.</p></div><div class="paper-card progress-card"><span class="card-kicker">SEU CAMINHO</span><div class="progress-dots" aria-hidden="true"><span></span><span></span><span></span></div><p id="progress-text">Cada tentativa ajuda a encontrar o próximo passo.</p></div></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section summary-section" id="resumo" aria-labelledby="summary-title"><div class="section-heading"><p class="section-number">05 / GUARDE ISSO</p><h2 id="summary-title">Seu resumo de bolso</h2><p>Um mapa curto para consultar quando aparecer um novo triângulo.</p></div><div class="summary-grid"><article class="summary-card"><span>01</span><h3>Comece pelo ângulo</h3><p>Marque θ. Depois identifique hipotenusa, oposto e adjacente.</p></article><article class="summary-card"><span>02</span><h3>Escolha a razão</h3><p><strong>sen = O/H</strong><br><strong>cos = A/H</strong><br><strong>tg = O/A</strong></p></article><article class="summary-card"><span>03</span><h3>Confira o sentido</h3><p>Comprimentos devem ser positivos. Sen e cos ficam entre 0 e 1 para ângulos agudos.</p></article><article class="summary-card"><span>04</span><h3>Relacione as ideias</h3><p>sen² θ + cos² θ = 1. E tg θ = sen θ / cos θ quando cos θ ≠ 0.</p></article></div><div class="closing-note"><span aria-hidden="true">✳</span><p>Você não precisa decorar o desenho: <strong>localize o ângulo e compare os lados.</strong></p><a href="#laboratorio">Explorar de novo ↑</a></div></section>
+  </main>
+  <footer class="site-footer"><span>Caderno de Matemática · Trigonometria</span><span>Feito para aprender no seu ritmo.</span></footer>
+</body>
+</html>

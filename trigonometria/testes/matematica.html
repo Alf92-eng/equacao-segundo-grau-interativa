@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Testes de trigonometria</title><style>body{font:16px/1.6 system-ui,sans-serif;max-width:720px;margin:40px auto;padding:0 20px;color:#24352f}li{padding:8px 0}.pass{color:#176035}.fail{color:#a32a20}</style></head>
+<body><h1>Testes matemáticos da página</h1><p>Resultados calculados pelo mesmo JavaScript do laboratório.</p><ol id="results"></ol><p id="summary" role="status"></p><script src="../script.js"></script><script>
+  const results = document.getElementById("results");
+  const cases = [
+    ["30°: sen = 1/2, cos = √3/2, tg = √3/3", () => { const x = TrigMath.calculate(30, 10); return near(x.sine, .5) && near(x.cosine, Math.sqrt(3)/2) && near(x.tangent, Math.sqrt(3)/3) && near(x.opposite, 5); }],
+    ["45°: catetos iguais e tg = 1", () => { const x = TrigMath.calculate(45, Math.sqrt(2)); return near(x.opposite, 1) && near(x.adjacent, 1) && near(x.tangent, 1); }],
+    ["Triângulo 3–4–5: sen = 3/5, cos = 4/5, tg = 3/4", () => { const x = TrigMath.calculate(Math.atan2(3, 4) * 180 / Math.PI, 5); return near(x.opposite, 3) && near(x.adjacent, 4) && near(x.sine, .6) && near(x.cosine, .8) && near(x.tangent, .75); }],
+    ["Caso-limite: 89,9° é válido e 90° é excluído da figura", () => TrigMath.validateInputs("89,9", "10").valid && !TrigMath.validateInputs("90", "10").valid],
+    ["Entrada inválida: texto, hipotenusa zero e divisão por zero", () => !TrigMath.validateInputs("abc", "10").valid && !TrigMath.validateInputs("30", "0").valid && TrigMath.parseAnswer("3/0") === null],
+    ["Frações e vírgulas decimais", () => near(TrigMath.parseAnswer("3/5"), .6) && near(TrigMath.parseAnswer("0,75"), .75)]
+  ];
+  function near(actual, expected) { return Math.abs(actual - expected) < 1e-9; }
+  let passed = 0;
+  cases.forEach(([label, test]) => { const item = document.createElement("li"); let ok = false; try { ok = test(); } catch (_) {} item.className = ok ? "pass" : "fail"; item.textContent = `${ok ? "PASSOU" : "FALHOU"} — ${label}`; results.append(item); if (ok) passed++; });
+  document.getElementById("summary").textContent = `${passed} de ${cases.length} testes passaram.`;
+</script></body></html>

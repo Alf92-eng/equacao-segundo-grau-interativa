@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR"><meta charset="utf-8"><title>Testes de potenciação</title>
+<h1>Testes matemáticos</h1><ol id="resultados"></ol><p id="resumo"></p>
+<script src="../script.js"></script>
+<script>
+  const casos = [
+    ["Produto de mesma base", { mode: "multiplicar", a: 2, m: 3, n: 2 }, "32"],
+    ["Divisão de mesma base", { mode: "dividir", a: 2, m: 3, n: 2 }, "2"],
+    ["Potência de potência", { mode: "potencia", a: 2, m: 3, n: 2 }, "64"],
+    ["Potência do produto", { mode: "produto", a: 2, b: 4, n: 2 }, "64"],
+    ["Potência do quociente", { mode: "quociente", a: 4, b: 2, n: 2 }, "4"],
+    ["Expoente zero", { mode: "simples", a: 7, m: 0 }, "1"],
+    ["Base negativa", { mode: "simples", a: -2, m: 3 }, "−8"],
+    ["Expoente negativo", { mode: "simples", a: 2, m: -2 }, "1/4"],
+    ["Multiplicação com expoente negativo", { mode: "multiplicar", a: 2, m: -2, n: 3 }, "2"],
+    ["Divisão com expoente negativo", { mode: "dividir", a: 2, m: -2, n: 1 }, "1/8"],
+    ["Divisão com expoente zero", { mode: "dividir", a: 2, m: 0, n: 1 }, "1/2"],
+    ["Potência de potência com expoente externo negativo", { mode: "potencia", a: 2, m: 2, n: -2 }, "1/16"],
+    ["Potência de potência com expoente externo zero", { mode: "potencia", a: 2, m: -2, n: 0 }, "1"],
+    ["Produto com expoente negativo", { mode: "produto", a: 2, b: 4, n: -2 }, "1/64"],
+    ["Quociente com expoente negativo", { mode: "quociente", a: 4, b: 2, n: -2 }, "1/4"],
+    ["Zero elevado a zero é inválido", { mode: "simples", a: 0, m: 0 }, null],
+    ["Denominador zero é inválido", { mode: "quociente", a: 4, b: 0, n: 2 }, null],
+    ["Produto zero com expoente negativo é inválido", { mode: "produto", a: 0, b: 4, n: -2 }, null],
+    ["Quociente zero com expoente negativo é inválido", { mode: "quociente", a: 0, b: 2, n: -2 }, null],
+    ["Decimal no expoente é inválido", { mode: "simples", a: 2, m: "2,5" }, null]
+  ];
+  let falhas = 0;
+  for (const [nome, entrada, esperado] of casos) {
+    let obtido;
+    try { obtido = rationalText(solve(entrada).result); }
+    catch (erro) { obtido = erro instanceof MathDomainError ? null : "erro inesperado"; }
+    const passou = obtido === esperado;
+    if (!passou) falhas++;
+    const item = document.createElement("li");
+    item.textContent = `${passou ? "OK" : "FALHOU"} — ${nome}: ${obtido ?? "inválido"}`;
+    document.querySelector("#resultados").append(item);
+  }
+  const verificacoes = [
+    ["Resposta aceita o sinal de menos exibido na página", parseAnswer("−8")?.num === -8n],
+    ["Resposta aceita fração negativa com sinal exibido", parseAnswer("−1/4")?.num === -1n && parseAnswer("−1/4")?.den === 4n],
+    ["Divisão com expoente negativo explica inversos", solve({ mode: "dividir", a: 2, m: -2, n: 1 }).steps[2].explanation.includes("inversos")],
+    ["Divisão com expoente zero explica o valor 1", solve({ mode: "dividir", a: 2, m: 0, n: 1 }).steps[2].explanation.includes("vale 1")]
+  ];
+  for (const [nome, passou] of verificacoes) {
+    if (!passou) falhas++;
+    const item = document.createElement("li");
+    item.textContent = `${passou ? "OK" : "FALHOU"} — ${nome}`;
+    document.querySelector("#resultados").append(item);
+  }
+  const total = casos.length + verificacoes.length;
+  document.querySelector("#resumo").textContent = `${total - falhas}/${total} testes passaram`;
+  document.body.dataset.falhas = String(falhas);
+</script>
+</html>

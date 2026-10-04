@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Aprenda potenciação com exemplos resolvidos, um laboratório de propriedades e exercícios com pistas.">
+  <title>Potenciação | Matemática em Ação</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="Matemática em Ação, voltar ao início"><span class="brand-mark" aria-hidden="true">a<sup>n</sup></span><span>Matemática <strong>em Ação</strong></span></a>
+      <nav class="step-nav" aria-label="Etapas da aula">
+        <a href="#entenda">Entenda</a>
+        <a href="#regras">Regras</a>
+        <a href="#laboratorio">Experimente</a>
+        <a href="#pratique">Pratique</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero section" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> MATEMÁTICA, PASSO A PASSO</p>
+        <h1 id="hero-title">Potenciação<span class="title-dot">.</span></h1>
+        <p class="hero-lead">Entenda o que o expoente faz, descubra por que as propriedades funcionam e teste cada conta com as próprias mãos.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#entenda">Começar a aprender <span aria-hidden="true">↗</span></a><span class="hero-time">Uma aula para explorar no seu ritmo</span></div>
+        <div class="learning-goals" role="group" aria-label="Ao final desta aula, você poderá">
+          <span>Identificar base e expoente</span><span>Calcular potências</span><span>Aplicar 5 propriedades</span>
+        </div>
+      </div>
+      <div class="hero-visual" role="img" aria-label="Dois elevado a três é dois vezes dois vezes dois, igual a oito">
+        <div class="hero-sticker">UMA IDEIA QUE SE REPETE <span aria-hidden="true">✳</span></div>
+        <div class="hero-expression">2<sup>3</sup><span>=</span><strong>8</strong></div>
+        <div class="hero-factors"><span>2</span><i>×</i><span>2</span><i>×</i><span>2</span></div>
+        <p>3 fatores iguais a 2</p>
+        <div class="hero-scribble" aria-hidden="true">↗</div>
+      </div>
+    </section>
+
+    <section class="section intro-section" id="entenda" aria-labelledby="intro-title">
+      <div class="section-heading"><p class="section-number">01 / ENTENDA</p><h2 id="intro-title">Multiplicação que se repete</h2><p>Uma potência é uma forma curta de escrever vários fatores iguais multiplicados.</p></div>
+      <div class="concept-grid">
+        <article class="paper-card concept-main">
+          <p class="card-kicker">LEIA A EXPRESSÃO</p>
+          <div class="concept-formula"><span class="base-mark">a</span><sup class="exponent-mark">n</sup><span class="formula-equals">=</span><span class="formula-words">a × a × … × a</span></div>
+          <p>Para <strong>n inteiro positivo</strong>, escrevemos <strong>n fatores iguais a a</strong>. Por exemplo, 2<sup>3</sup> = 2 × 2 × 2 = 8.</p>
+          <div class="term-grid"><div><strong>Base <span>a</span></strong><p>É o número repetido na multiplicação.</p></div><div><strong>Expoente <span>n</span></strong><p>Indica quantas vezes a base aparece como fator.</p></div></div>
+        </article>
+        <aside class="paper-card note-card"><span class="note-icon" aria-hidden="true">!</span><h3>Antes de aplicar as regras</h3><p>Com expoente <strong>1</strong>, a base aparece uma vez: a<sup>1</sup> = a.</p><p>O expoente zero dá <strong>1</strong> para qualquer base diferente de zero: a<sup>0</sup> = 1.</p><p>O expoente negativo indica o <strong>inverso</strong>: a<sup>−n</sup> = 1/a<sup>n</sup>, se a ≠ 0.</p><p><strong>0<sup>0</sup> não é definido nesta aula</strong>, e não podemos dividir por zero.</p></aside>
+      </div>
+    </section>
+
+    <section class="section rules-section" id="regras" aria-labelledby="rules-title">
+      <div class="section-heading"><p class="section-number">02 / CONHEÇA AS PROPRIEDADES</p><h2 id="rules-title">Um pequeno mapa de regras</h2><p>Compare os expoentes e observe o que muda em cada operação. Clique em “Testar” para abrir um exemplo no laboratório.</p></div>
+      <div class="rules-grid">
+        <article class="rule-card rule-blue"><span class="rule-index">01</span><h3>Multiplicação <small>mesma base</small></h3><p class="rule-formula">a<sup>m</sup> · a<sup>n</sup> = a<sup>m+n</sup></p><p>Conserve a base e <strong>some</strong> os expoentes.</p><button type="button" class="rule-link" data-example="multiplicar">Testar esta regra <span aria-hidden="true">↗</span></button></article>
+        <article class="rule-card rule-orange"><span class="rule-index">02</span><h3>Divisão <small>mesma base, a ≠ 0</small></h3><p class="rule-formula">a<sup>m</sup> ÷ a<sup>n</sup> = a<sup>m−n</sup></p><p>Conserve a base e <strong>subtraia</strong> os expoentes.</p><button type="button" class="rule-link" data-example="dividir">Testar esta regra <span aria-hidden="true">↗</span></button></article>
+        <article class="rule-card rule-green"><span class="rule-index">03</span><h3>Potência de potência</h3><p class="rule-formula">(a<sup>m</sup>)<sup>n</sup> = a<sup>m·n</sup></p><p>Repita os grupos: <strong>multiplique</strong> os expoentes.</p><button type="button" class="rule-link" data-example="potencia">Testar esta regra <span aria-hidden="true">↗</span></button></article>
+        <article class="rule-card rule-purple"><span class="rule-index">04</span><h3>Potência do produto</h3><p class="rule-formula">(a · b)<sup>n</sup> = a<sup>n</sup> · b<sup>n</sup></p><p>O expoente vai para <strong>cada fator</strong>.</p><button type="button" class="rule-link" data-example="produto">Testar esta regra <span aria-hidden="true">↗</span></button></article>
+        <article class="rule-card rule-rose"><span class="rule-index">05</span><h3>Potência do quociente <small>b ≠ 0</small></h3><p class="rule-formula">(a ÷ b)<sup>n</sup> = a<sup>n</sup> ÷ b<sup>n</sup></p><p>O expoente vai para <strong>numerador e denominador</strong>.</p><button type="button" class="rule-link" data-example="quociente">Testar esta regra <span aria-hidden="true">↗</span></button></article>
+      </div>
+    </section>
+
+    <section class="lab-band" id="laboratorio" aria-labelledby="lab-title"><div class="section lab-section">
+      <div class="section-heading"><p class="section-number">03 / EXPERIMENTE</p><h2 id="lab-title">Laboratório de potências</h2><p>Escolha uma operação e mude os números. A regra, a conta e o mapa de fatores acompanham suas escolhas.</p></div>
+      <div class="lab-shell">
+        <div class="lab-input-panel">
+          <form id="power-form" novalidate>
+            <label for="mode">O que você quer investigar?</label>
+            <select id="mode" name="mode"><option value="simples">Uma potência</option><option value="multiplicar" selected>Multiplicação de potências</option><option value="dividir">Divisão de potências</option><option value="potencia">Potência de potência</option><option value="produto">Potência do produto</option><option value="quociente">Potência do quociente</option></select>
+            <div class="field-grid">
+              <div class="field" data-field="a"><label for="base-a">Base a</label><input id="base-a" name="a" type="text" inputmode="numeric" value="2" autocomplete="off" aria-describedby="error-a"><small id="error-a" class="field-error"></small></div>
+              <div class="field" data-field="b"><label for="base-b">Base b</label><input id="base-b" name="b" type="text" inputmode="numeric" value="4" autocomplete="off" aria-describedby="error-b"><small id="error-b" class="field-error"></small></div>
+              <div class="field" data-field="m"><label for="exponent-m">Expoente m</label><input id="exponent-m" name="m" type="text" inputmode="numeric" value="3" autocomplete="off" aria-describedby="error-m"><small id="error-m" class="field-error"></small></div>
+              <div class="field" data-field="n"><label for="exponent-n">Expoente n</label><input id="exponent-n" name="n" type="text" inputmode="numeric" value="2" autocomplete="off" aria-describedby="error-n"><small id="error-n" class="field-error"></small></div>
+            </div>
+            <p class="input-note">Use números inteiros: bases de −9 a 9 e expoentes de −6 a 6. Bases negativas precisam de parênteses na escrita da potência.</p>
+            <p class="lab-error" id="lab-error" role="alert" hidden></p>
+          </form>
+          <div class="preset-box"><p>Exemplos rápidos</p><div class="preset-list"><button type="button" data-preset="produto-base">2³ · 2²</button><button type="button" data-preset="divisao-base">2³ ÷ 2²</button><button type="button" data-preset="zero">7⁰</button><button type="button" data-preset="negativo">(−2)³</button><button type="button" data-preset="inverso">2⁻²</button></div></div>
+        </div>
+        <div class="lab-result-panel"><span class="result-label">SUA CONTA</span><div id="expression" class="result-expression">2³ · 2²</div><div id="transformation" class="result-transformation">= 2⁵</div><div class="result-line"></div><div id="answer" class="result-answer" role="status" aria-live="polite">32</div><p id="answer-meaning" class="result-meaning">O resultado é 32.</p></div>
+      </div>
+      <div class="reason-layout">
+        <div class="paper-card steps-panel"><div class="panel-heading"><div><p class="card-kicker">EXEMPLO GUIADO</p><h3>Uma linha de cada vez</h3></div><button type="button" id="next-step" class="button button-secondary">Próximo passo ↓</button></div><div id="steps-list" class="steps-list"></div></div>
+        <div class="paper-card visual-panel"><div class="panel-heading"><div><p class="card-kicker">MAPA DE FATORES</p><h3>Veja os expoentes</h3></div></div><p id="visual-description" class="visual-description">Cada ficha representa um fator.</p><div id="factor-board" class="factor-board" aria-hidden="true"></div><div id="visual-controls" class="visual-controls"></div><p class="visual-note">Quando o expoente é negativo, os fatores ficam no denominador. As fichas mostram até 8 fatores; a conta mantém o valor completo.</p></div>
+      </div>
+    </div></section>
+
+    <section class="section practice-section" id="pratique" aria-labelledby="practice-title"><div class="section-heading"><p class="section-number">04 / AGORA É SUA VEZ</p><h2 id="practice-title">Resolva com uma pista por vez</h2><p>Escolha a transformação correta e calcule o valor. Se errar, veja qual etapa revisar.</p></div>
+      <div class="practice-layout"><article class="paper-card exercise-card"><div class="exercise-top"><span id="question-count">QUESTÃO 1 DE 8</span><button type="button" id="new-question" class="text-button">Nova questão ↻</button></div><p id="question-topic" class="exercise-topic">Mesma base</p><p id="question-expression" class="exercise-expression">2³ · 2²</p><form id="practice-form" novalidate><fieldset><legend>Qual expressão aplica a propriedade?</legend><div id="answer-options" class="answer-options"></div></fieldset><div class="practice-value"><label for="numeric-answer">Qual é o valor final?</label><input id="numeric-answer" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 32 ou 0,25" aria-describedby="practice-hint"><small id="practice-hint">Você pode usar inteiro, decimal ou fração.</small></div><div class="practice-actions"><button type="submit" class="button button-primary">Verificar resposta</button><button type="button" id="clear-answer" class="button button-quiet">Tentar novamente</button></div></form><div id="practice-feedback" class="practice-feedback" role="status" aria-live="polite" hidden></div></article><aside class="score-card"><span class="score-spark" aria-hidden="true">✳</span><p>SEU PROGRESSO</p><div class="score-numbers"><div><strong id="correct-count">0</strong><span>acertos</span></div><div><strong id="attempt-count">0</strong><span>tentativas</span></div></div><p>Acompanhe seu avanço. Sua pontuação fica salva neste navegador quando o armazenamento estiver disponível.</p></aside></div>
+    </section>
+
+    <section class="section summary-section" id="resumo" aria-labelledby="summary-title"><div class="summary-card"><div><p class="section-number">05 / GUARDE ISSO</p><h2 id="summary-title">Três perguntas para lembrar</h2><p>Antes de mexer nos expoentes, identifique a operação e confira se alguma divisão envolve zero.</p></div><ol><li><strong>A base é a mesma?</strong><span>Na multiplicação, some expoentes. Na divisão, subtraia.</span></li><li><strong>Há potência fora de parênteses?</strong><span>Potência de potência multiplica expoentes; produto e quociente distribuem o expoente.</span></li><li><strong>O expoente é zero ou negativo?</strong><span>Base não nula elevada a zero vale 1; expoente negativo produz o inverso.</span></li></ol></div></section>
+  </main>
+  <footer class="site-footer"><span>Caderno de Matemática · Potenciação</span><a href="#inicio">Voltar ao início ↑</a></footer>
+</body>
+</html>
