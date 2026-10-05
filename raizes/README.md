@@ -8,7 +8,7 @@ Abra `index.html` desta pasta em um navegador moderno. Não é preciso instalar 
 
 - No laboratório, escolha uma operação, altere os valores e acompanhe a forma exata, a aproximação decimal quando a raiz é irracional, os passos e o mapa de fatores.
 - Use os exemplos rápidos para preencher o laboratório.
-- Em **Agora é sua vez**, escolha a forma exata simplificada. As pistas explicam um passo útil; acertos e tentativas ficam salvos neste navegador quando o armazenamento está disponível.
+- Em **Agora é sua vez**, escolha a forma exata simplificada. As pistas explicam um passo útil; acertos e tentativas valem somente durante a visita atual e zeram ao sair ou atualizar a página.
 
 O laboratório aceita radicandos inteiros de −1.000.000 a 1.000.000, índices de 2 a 12 e expoentes positivos de 1 a 8. Radicais de índice par não admitem radicando negativo nos números reais; divisões por zero e somas de radicais não semelhantes são explicadas e bloqueadas.
 

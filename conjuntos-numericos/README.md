@@ -11,7 +11,7 @@ Abra `index.html` diretamente no navegador. A página usa HTML, CSS e JavaScript
 - Explicação da hierarquia dos conjuntos e convenção explícita de que `0 ∈ ℕ`.
 - Diagrama visual, exemplos guiados e reta numérica aproximada.
 - Laboratório para conferir a pertinência de exemplos em cada conjunto.
-- Exercícios com pistas e pontuação salva localmente quando o navegador permitir.
+- Exercícios com pistas e pontuação limitada à visita atual; ao sair ou atualizar, os contadores zeram.
 
 Os testes matemáticos manuais estão em `testes/matematica.html`. A validação de produto desta entrega está em `VALIDACAO.md`.
 

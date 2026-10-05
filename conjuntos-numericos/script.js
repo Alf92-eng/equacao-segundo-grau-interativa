@@ -116,7 +116,6 @@ const lineDescription = document.querySelector("#line-description");
 const practiceForm = document.querySelector("#practice-form");
 const practiceInput = document.querySelector("#numeric-answer");
 const practiceFeedback = document.querySelector("#practice-feedback");
-const storageNote = document.querySelector("#storage-note");
 const score = { correct: 0, attempts: 0 };
 let currentStep = 0;
 let currentExercise = 0;
@@ -207,35 +206,6 @@ function renderExercise() {
   practiceFeedback.classList.remove("is-error");
 }
 
-function saveScore() {
-  try {
-    localStorage.setItem("matematica-conjuntos-numericos-score", JSON.stringify(score));
-  } catch (error) {
-    if (!(error instanceof DOMException)) throw error;
-    storageNote.textContent = "O navegador bloqueou o armazenamento; a aula continua funcionando, mas a pontuação não será mantida depois que você sair.";
-    storageNote.hidden = false;
-  }
-}
-
-function loadScore() {
-  try {
-    const saved = localStorage.getItem("matematica-conjuntos-numericos-score");
-    if (!saved) return;
-    const parsed = JSON.parse(saved);
-    if (parsed && typeof parsed === "object" && Number.isInteger(parsed.correct) && parsed.correct >= 0 && Number.isInteger(parsed.attempts) && parsed.attempts >= parsed.correct) {
-      score.correct = parsed.correct;
-      score.attempts = parsed.attempts;
-    } else {
-      storageNote.textContent = "A pontuação salva não pôde ser restaurada; a aula continua funcionando com uma pontuação nova.";
-      storageNote.hidden = false;
-    }
-  } catch (error) {
-    if (!(error instanceof DOMException) && !(error instanceof SyntaxError)) throw error;
-    storageNote.textContent = "O navegador bloqueou a leitura da pontuação salva; a aula continua funcionando sem ela.";
-    storageNote.hidden = false;
-  }
-}
-
 function renderScore() {
   document.querySelector("#correct-count").textContent = String(score.correct);
   document.querySelector("#attempt-count").textContent = String(score.attempts);
@@ -288,7 +258,6 @@ if (exampleSelect) {
     }
     practiceFeedback.hidden = false;
     renderScore();
-    saveScore();
   });
   document.querySelector("#new-question").addEventListener("click", () => {
     currentExercise = (currentExercise + 1) % EXERCISES.length;
@@ -303,7 +272,13 @@ if (exampleSelect) {
     practiceInput.focus();
   });
 
-  loadScore();
+  window.addEventListener("pagehide", () => {
+    score.correct = 0;
+    score.attempts = 0;
+    renderScore();
+    renderExercise();
+  });
+
   renderScore();
   renderExercise();
   updateExample(exampleSelect.value);

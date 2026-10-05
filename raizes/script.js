@@ -426,22 +426,8 @@
   let questionIndex = 0;
   let questionSolved = false;
   let score = { correct: 0, attempts: 0 };
-  try {
-    const saved = JSON.parse(localStorage.getItem("radiciacao-score-v1"));
-    if (saved && Number.isSafeInteger(saved.correct) && Number.isSafeInteger(saved.attempts) && saved.correct >= 0 && saved.attempts >= saved.correct) score = saved;
-  } catch (_) {
-    score = { correct: 0, attempts: 0 };
-  }
   const practiceForm = document.querySelector("#practice-form");
   const feedback = document.querySelector("#practice-feedback");
-
-  function saveScore() {
-    try {
-      localStorage.setItem("radiciacao-score-v1", JSON.stringify(score));
-    } catch (_) {
-      feedback.textContent = "A pontuação desta sessão não pôde ser salva, mas a prática continua normalmente.";
-    }
-  }
 
   function renderScore() {
     document.querySelector("#correct-count").textContent = String(score.correct);
@@ -505,7 +491,13 @@
     }
     feedback.hidden = false;
     renderScore();
-    saveScore();
+  });
+
+  window.addEventListener("pagehide", () => {
+    score.correct = 0;
+    score.attempts = 0;
+    renderScore();
+    renderQuestion();
   });
 
   syncFields();

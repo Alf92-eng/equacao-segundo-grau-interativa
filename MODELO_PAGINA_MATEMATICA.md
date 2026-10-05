@@ -102,7 +102,7 @@ Se alguma seção não for pertinente ao tema, substitua-a por uma experiência 
 - Gere ou escolha exercícios compatíveis com o conteúdo já ensinado. Evite perguntas ambíguas e resultados que dependam de arredondamento não explicado.
 - Separe as respostas por etapa do raciocínio quando isso fizer sentido. Ao verificar, mostre “Correto!” ou “Quase! Confira este passo”, com uma pista **específica para o primeiro erro provável**.
 - Mostre pistas junto ao campo e um resumo acessível da tentativa. Limpe pistas desatualizadas quando a pessoa editar a resposta ou pedir outra questão.
-- Registre acertos e tentativas. Se a pontuação for persistida, use `localStorage` com tratamento para armazenamento indisponível; o exercício deve continuar funcionando sem ele.
+- Registre acertos e tentativas somente na memória da página aberta. Não use `localStorage`, `sessionStorage`, cookies ou outro mecanismo para persistir resultados. Ao sair da página, recarregá-la ou fechá-la, zere os contadores e não restaure pontuações anteriores; se a página voltar do cache de navegação, reinicie também o estado visual do exercício.
 - Ofereça “Nova questão” e uma maneira simples de tentar novamente. Não revele imediatamente toda a resposta quando uma pista permitir que o estudante raciocine.
 
 ### 9. Acessibilidade
@@ -129,7 +129,7 @@ Execute e confira, na medida do possível:
 - O exemplo inicial e os três testes matemáticos têm exatamente os resultados esperados.
 - Todos os campos e exemplos atualizam expressão, solução e visualização de forma consistente.
 - Dados inválidos produzem mensagens úteis, sem números impossíveis na tela.
-- Exercício: acerto, erro, nova questão, limpeza de pistas e persistência da pontuação.
+- Exercício: acerto, erro, nova questão, limpeza de pistas e pontuação limitada à visita atual; confirme que os contadores zeram ao atualizar, sair e voltar à página.
 - Desktop: mouse, zoom, edição visual e teclado.
 - Celular: leitura em blocos, rolagem normal dentro de seções longas, zoom por botões, edição por toque apenas quando ativada e **nenhuma rolagem horizontal**.
 - Foco visível, textos alternativos à visualização e preferência por movimento reduzido.

@@ -235,7 +235,6 @@ const state = {
   lastRateDate: null
 };
 
-const scoreStorageKey = "caderno-matematica:conversor-score:v1";
 const unitSymbols = {
   km3: "km³", hm3: "hm³", dam3: "dam³", m3: "m³", dm3: "dm³", cm3: "cm³", mm3: "mm³",
   km2: "km²", hm2: "hm²", dam2: "dam²", m2: "m²", dm2: "dm²", cm2: "cm²", mm2: "mm²",
@@ -601,32 +600,13 @@ async function fetchCurrencyRate() {
   }
 }
 
-function loadScore() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(scoreStorageKey));
-    if (saved && Number.isSafeInteger(saved.correct) && Number.isSafeInteger(saved.attempts)
-      && saved.correct >= 0 && saved.attempts >= saved.correct) {
-      state.score = { correct: saved.correct, attempts: saved.attempts };
-    }
-  } catch (_) {
-    state.score = { correct: 0, attempts: 0 };
-  }
-  updateScore();
-}
-
-function saveScore() {
-  try {
-    localStorage.setItem(scoreStorageKey, JSON.stringify(state.score));
-  } catch (_) {
-    dom.scoreMessage.textContent = "A pontuação vale nesta sessão; o navegador não permitiu salvá-la.";
-  }
-}
-
 function updateScore() {
   dom.correctCount.textContent = String(state.score.correct);
   dom.attemptCount.textContent = String(state.score.attempts);
   if (state.score.attempts > 0) {
     dom.scoreMessage.textContent = `${Math.round(state.score.correct / state.score.attempts * 100)}% de acertos até agora.`;
+  } else {
+    dom.scoreMessage.textContent = "Cada tentativa ajuda a fixar o que você aprendeu.";
   }
 }
 
@@ -635,6 +615,7 @@ function showExercise() {
   dom.exercisePrompt.textContent = exercise.prompt;
   dom.exerciseUnit.textContent = exercise.unit;
   dom.exerciseAnswer.value = "";
+  dom.exerciseAnswer.removeAttribute("aria-invalid");
   dom.exerciseFeedback.hidden = true;
   dom.exerciseFeedback.textContent = "";
   dom.exerciseFeedback.classList.remove("is-error");
@@ -656,7 +637,6 @@ function checkExercise(event) {
   state.score.attempts += 1;
   if (isCorrect) state.score.correct += 1;
   updateScore();
-  saveScore();
   dom.exerciseFeedback.textContent = isCorrect
     ? `Correto! A resposta é ${formatNumber(exercise.answer)} ${exercise.unit}.`
     : `Quase. ${exercise.hint}`;
@@ -671,7 +651,6 @@ function initialize() {
   updateCategoryHeading(getCategory(state.categoryId));
   setCategoryUnits(getCategory(state.categoryId));
   renderExamples();
-  loadScore();
   showExercise();
   updateCurrencyState();
   renderConversion();
@@ -741,4 +720,11 @@ function initialize() {
 }
 
 window.ConversorMatematico = Object.freeze({ categories, convertValue, formatNumber, parseNumber });
+window.addEventListener("pagehide", () => {
+  state.score.correct = 0;
+  state.score.attempts = 0;
+  updateScore();
+  showExercise();
+});
+
 initialize();

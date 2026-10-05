@@ -329,14 +329,9 @@ function initApp() {
   let questionSolved = false;
   let optionOrder = [0, 1, 2];
   let score = { correct: 0, attempts: 0 };
-  try {
-    const saved = JSON.parse(localStorage.getItem("potenciacao-score-v1"));
-    if (saved && Number.isSafeInteger(saved.correct) && Number.isSafeInteger(saved.attempts) && saved.correct >= 0 && saved.attempts >= saved.correct) score = saved;
-  } catch (_) { /* A prática continua quando o armazenamento não está disponível. */ }
   const practiceForm = document.querySelector("#practice-form");
   const feedback = document.querySelector("#practice-feedback");
   const numericAnswer = document.querySelector("#numeric-answer");
-  function saveScore() { try { localStorage.setItem("potenciacao-score-v1", JSON.stringify(score)); } catch (_) { /* armazenamento opcional */ } }
   function renderScore() {
     document.querySelector("#correct-count").textContent = String(score.correct);
     document.querySelector("#attempt-count").textContent = String(score.attempts);
@@ -375,12 +370,18 @@ function initApp() {
       if (!questionSolved) { score.correct += 1; questionSolved = true; }
       giveFeedback(true, "Correto!", `A transformação e o valor ${rationalText(question.value)} estão certos. Você pode seguir para outra questão.`);
     }
-    saveScore(); renderScore();
+    renderScore();
   });
   practiceForm.addEventListener("input", () => { feedback.hidden = true; feedback.textContent = ""; });
   practiceForm.addEventListener("change", () => { feedback.hidden = true; feedback.textContent = ""; });
   document.querySelector("#clear-answer").addEventListener("click", clearPractice);
   document.querySelector("#new-question").addEventListener("click", () => { questionIndex = (questionIndex + 1) % QUESTIONS.length; renderQuestion(); });
+  window.addEventListener("pagehide", () => {
+    score.correct = 0;
+    score.attempts = 0;
+    renderScore();
+    renderQuestion();
+  });
   renderScore(); renderQuestion();
 }
 

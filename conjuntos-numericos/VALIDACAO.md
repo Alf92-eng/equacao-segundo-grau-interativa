@@ -53,8 +53,8 @@ Não foi calculada nota geral: não há evidência suficiente para pontuar todos
 | Classificação de irracional | Selecionar √2 | Menor conjunto 𝕀; pertences 𝕀 e ℝ; aproximação na reta identificada | Menor conjunto 𝕀; chips 𝕀 e ℝ; posição aproximadamente 1,4142 | Testado e confirmado | Interação na página local |
 | Pertinência negativa | Selecionar ℕ para √2 e conferir | Informar que √2 não pertence a ℕ sem apagar a classificação | Retorno explicou que √2 não pertence a ℕ; classificação permaneceu visível | Testado e confirmado | Interação na página local |
 | Prática — tentativa incorreta | Responder `Q` para a questão inicial sobre 8 | Mostrar pista específica sem marcar acerto | “Quase!” e pista sobre 8 ser inteiro positivo | Testado e confirmado | Feedback visível na página |
-| Prática — acerto | Responder `N` para a questão inicial sobre 8 | Confirmar acerto e atualizar pontuação | “Correto!”; pontuação mostrou 1 acerto em 2 tentativas | Testado e confirmado | Interface e registro localStorage observado durante a sessão |
-| Persistência da pontuação | Registrar uma tentativa incorreta, atualizar a página; depois acertar e atualizar novamente | Preservar acertos e tentativas | Após erro: 0 acertos/1 tentativa antes e depois; após acerto: 1/2 antes e depois | Testado e confirmado | Navegador local; `localStorage` |
+| Prática — acerto | Responder `N` para a questão inicial sobre 8 | Confirmar acerto e atualizar pontuação apenas nesta visita | “Correto!”; pontuação mostrou 1 acerto em 2 tentativas | Testado e confirmado | Interface da página |
+| Reinício da pontuação | Registrar uma tentativa, disparar `pagehide` e recarregar | Zerar acertos e tentativas ao sair e ao atualizar | 1 tentativa antes; 0 após `pagehide` e 0 após recarga | Testado e confirmado | Navegador integrado; Conjuntos numéricos |
 | Nova questão | Acionar “Nova questão” | Avançar e apresentar novo enunciado | Enunciado mudou para −5 | Testado e confirmado | Interação na página local |
 | Largura móvel | Abrir a aula em emulação de 375 × 844 px | Sem rolagem horizontal | `documentElement.scrollWidth` e `clientWidth` foram 360 px | Testado e confirmado | Medição no navegador integrado; emulação, não aparelho físico |
 | Link no índice | Abrir a home e observar o índice | Entrada da aula com rota correta | Link “Conjuntos numéricos” apontou para `conjuntos-numericos/index.html` | Observado na interface | Snapshot do índice da home; não foi possível confirmar o clique de navegação nesta sessão |
@@ -62,7 +62,7 @@ Não foi calculada nota geral: não há evidência suficiente para pontuar todos
 ## 7. Recomendações para validar
 
 1. **Teclado e tecnologias assistivas:** percorrer do início ao fim com Tab/Shift+Tab, acionar exemplos, formulário, “Próximo passo”, prática e “Nova questão”; depois testar com leitor de tela. Confirmar ordem de foco, anúncio dos resultados e retorno de erro. **Por que importa:** os elementos são dinâmicos e a cobertura atual é de inspeção de código, não de tecnologia assistiva. **Ferramenta/acesso:** teclado e leitor de tela (por exemplo, NVDA).
-2. **Armazenamento bloqueado:** bloquear o armazenamento e confirmar a mensagem de contingência. **Por que importa:** a restauração funciona com `localStorage`, mas sua indisponibilidade impede persistência. **Ferramenta/acesso:** navegador com armazenamento local.
+2. **Retorno do cache de navegação:** responder uma questão, sair da página e voltar pelo navegador. **Por que importa:** o cache de navegação pode restaurar a página sem recarregá-la; o estado do exercício e os contadores devem continuar zerados. **Ferramenta/acesso:** navegador com navegação voltar/avançar.
 3. **Responsividade adicional:** repetir a conferência em 390, 768 e 1440 px e verificar visualmente o diagrama, os textos e os controles. **Por que importa:** somente a largura estreita de 375 px foi medida. **Ferramenta/acesso:** navegador com emulação de viewport.
 4. **Entradas e recuperação:** tentar campo de exercício vazio, texto inválido e nomes por extenso aceitos; limpar a resposta e avançar para outra questão após um erro. **Por que importa:** esses casos estão previstos pela interface, mas não foram executados todos. **Ferramenta/acesso:** navegador.
 5. **Integração da home:** clicar no item 06 e verificar se a URL final abre a aula local. **Por que importa:** o snapshot confirmou o destino textual, mas a navegação por clique não foi concluída. **Ferramenta/acesso:** navegador local.
@@ -71,8 +71,8 @@ Não foi calculada nota geral: não há evidência suficiente para pontuar todos
 ## 8. Checklist de ação para a equipe
 
 - [ ] Validar navegação completa por teclado e leitor de tela; critério de pronto: todos os controles operáveis e resultados/erros anunciados na ordem esperada.
-- [x] Confirmar restauração dos acertos e tentativas após recarga; critério de pronto: contadores restaurados após resposta errada e correta.
-- [ ] Confirmar contingência quando o armazenamento está bloqueado; critério de pronto: mensagem clara sem interromper a aula.
+- [x] Confirmar que os acertos e tentativas zeram após `pagehide` e recarga; critério de pronto: contadores em zero e exercício limpo.
+- [ ] Confirmar retorno do cache de navegação; critério de pronto: contadores e estado visual continuam limpos após voltar à página.
 - [ ] Repetir medidas nos viewports de 390, 768 e 1440 px; critério de pronto: sem conteúdo cortado nem rolagem horizontal.
 - [ ] Completar os casos de entrada vazia/inválida e recuperação; critério de pronto: feedback específico e estado anterior preservado quando pertinente.
 - [ ] Confirmar o clique no link da home; critério de pronto: rota local abre a página Conjuntos numéricos.

@@ -17,7 +17,6 @@ const nextStepButton = document.querySelector("#next-step");
 const practiceForm = document.querySelector("#practice-form");
 const practiceInput = document.querySelector("#numeric-answer");
 const practiceFeedback = document.querySelector("#practice-feedback");
-const storageNote = document.querySelector("#storage-note");
 const score = { correct: 0, attempts: 0 };
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -220,40 +219,10 @@ function renderExercise() {
   document.querySelector("#question-topic").textContent = exercise.topic;
   document.querySelector("#question-expression").textContent = exercise.question;
   practiceInput.value = "";
+  practiceInput.removeAttribute("aria-invalid");
   practiceFeedback.hidden = true;
   practiceFeedback.textContent = "";
   practiceFeedback.classList.remove("is-error");
-}
-
-function saveScore() {
-  try {
-    localStorage.setItem("matematica-porcentagem-score", JSON.stringify(score));
-  } catch (error) {
-    if (!(error instanceof DOMException)) throw error;
-    storageNote.textContent = "O navegador bloqueou o armazenamento; a aula continua funcionando, mas a pontuação não será mantida depois que você sair.";
-    storageNote.hidden = false;
-  }
-}
-
-function loadScore() {
-  try {
-    const saved = localStorage.getItem("matematica-porcentagem-score");
-    if (!saved) return;
-    const parsed = JSON.parse(saved);
-    if (parsed && typeof parsed === "object" && Number.isInteger(parsed.correct) && parsed.correct >= 0 && Number.isInteger(parsed.attempts) && parsed.attempts >= parsed.correct) {
-      score.correct = parsed.correct;
-      score.attempts = parsed.attempts;
-    } else {
-      storageNote.textContent = "Não foi possível restaurar a pontuação salva; a aula continua funcionando com uma pontuação nova.";
-      storageNote.hidden = false;
-    }
-  } catch (error) {
-    if (!(error instanceof DOMException) && !(error instanceof SyntaxError)) throw error;
-    storageNote.textContent = error instanceof SyntaxError
-      ? "A pontuação salva não pôde ser lida; a aula continua funcionando com uma pontuação nova."
-      : "O navegador bloqueou o armazenamento; a aula continua funcionando, mas a pontuação não será mantida depois que você sair.";
-    storageNote.hidden = false;
-  }
 }
 
 function renderScore() {
@@ -324,7 +293,6 @@ practiceForm.addEventListener("submit", (event) => {
   }
   practiceFeedback.hidden = false;
   renderScore();
-  saveScore();
 });
 
 document.querySelectorAll(".hero-grid, .teaching-grid").forEach((grid) => {
@@ -335,7 +303,13 @@ document.querySelectorAll(".hero-grid, .teaching-grid").forEach((grid) => {
   }));
 });
 
-loadScore();
+window.addEventListener("pagehide", () => {
+  score.correct = 0;
+  score.attempts = 0;
+  renderScore();
+  renderExercise();
+});
+
 renderScore();
 renderExercise();
 updateFields();

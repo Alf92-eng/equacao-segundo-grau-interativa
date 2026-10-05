@@ -21,4 +21,4 @@ Informe de 2 a 5 inteiros positivos, cada um entre 1 e 1.000.000. Separe os valo
 
 ## Progresso
 
-Os acertos e as tentativas são salvos no armazenamento local do navegador e permanecem após atualizar ou fechar a página. Se o navegador bloquear o armazenamento, a aula mostra um aviso e continua funcionando; nesse caso, a pontuação não pode ser preservada.
+Acertos e tentativas ficam apenas na memória enquanto a aula está aberta. Ao sair, atualizar ou fechar a página, a pontuação zera e não é restaurada.

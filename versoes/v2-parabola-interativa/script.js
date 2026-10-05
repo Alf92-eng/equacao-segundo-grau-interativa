@@ -1250,6 +1250,12 @@ elements.canvas.addEventListener("auxclick", (event) => {
 });
 elements.resetView.addEventListener("click", resetGraphView);
 window.addEventListener("resize", handleResize);
+window.addEventListener("pagehide", () => {
+  state.score.correct = 0;
+  state.score.attempts = 0;
+  updateScore();
+  generateExercise();
+});
 
 calculateAndRender();
 generateExercise();

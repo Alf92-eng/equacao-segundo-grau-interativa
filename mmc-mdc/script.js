@@ -14,10 +14,8 @@ const stepsList = document.querySelector("#steps-list");
 const practiceForm = document.querySelector("#practice-form");
 const practiceInput = document.querySelector("#numeric-answer");
 const practiceFeedback = document.querySelector("#practice-feedback");
-const storageNote = document.querySelector("#storage-note");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const score = { correct: 0, attempts: 0 };
-const SCORE_KEY = "matematica-mmc-mdc-score-v1";
 const exercises = [
   { topic: "Encontre um divisor comum", question: "Qual é o MDC de 24 e 36?", answer: 12n, hint: "Procure o maior fator que divide 24 e 36 sem deixar resto." },
   { topic: "Encontre um múltiplo comum", question: "Qual é o MMC de 8 e 12?", answer: 24n, hint: "Escreva os múltiplos de 8 e 12; o primeiro que aparece nas duas listas é o MMC." },
@@ -196,6 +194,7 @@ function renderExercise() {
   document.querySelector("#question-topic").textContent = exercise.topic;
   document.querySelector("#question-expression").textContent = exercise.question;
   practiceInput.value = "";
+  practiceInput.removeAttribute("aria-invalid");
   practiceFeedback.hidden = true;
   practiceFeedback.textContent = "";
   practiceFeedback.classList.remove("is-error");
@@ -204,44 +203,6 @@ function renderExercise() {
 function renderScore() {
   document.querySelector("#correct-count").textContent = String(score.correct);
   document.querySelector("#attempt-count").textContent = String(score.attempts);
-}
-
-function saveScore() {
-  try {
-    localStorage.setItem(SCORE_KEY, JSON.stringify(score));
-    storageNote.hidden = true;
-    storageNote.textContent = "";
-  } catch (error) {
-    if (!(error instanceof DOMException)) throw error;
-    storageNote.textContent = "O navegador bloqueou o armazenamento; a aula continua funcionando, mas a pontuação não será mantida depois que você sair.";
-    storageNote.hidden = false;
-  }
-}
-
-function loadScore() {
-  try {
-    const saved = localStorage.getItem(SCORE_KEY);
-    if (saved === null) return;
-    const parsed = JSON.parse(saved);
-    if (parsed && typeof parsed === "object"
-      && Number.isSafeInteger(parsed.correct) && parsed.correct >= 0
-      && Number.isSafeInteger(parsed.attempts) && parsed.attempts >= parsed.correct) {
-      score.correct = parsed.correct;
-      score.attempts = parsed.attempts;
-      return;
-    }
-    storageNote.textContent = "A pontuação salva está inválida e não pôde ser restaurada; a aula continua funcionando com uma pontuação nova.";
-    storageNote.hidden = false;
-  } catch (error) {
-    if (error instanceof SyntaxError) {
-      storageNote.textContent = "A pontuação salva não pôde ser lida; a aula continua funcionando com uma pontuação nova.";
-      storageNote.hidden = false;
-      return;
-    }
-    if (!(error instanceof DOMException)) throw error;
-    storageNote.textContent = "O navegador bloqueou a leitura da pontuação salva; a aula continua funcionando com uma pontuação nova.";
-    storageNote.hidden = false;
-  }
 }
 
 function parsePracticeAnswer(raw) {
@@ -306,10 +267,15 @@ practiceForm.addEventListener("submit", (event) => {
   }
   practiceFeedback.hidden = false;
   renderScore();
-  saveScore();
 });
 
-loadScore();
+window.addEventListener("pagehide", () => {
+  score.correct = 0;
+  score.attempts = 0;
+  renderScore();
+  renderExercise();
+});
+
 renderExercise();
 renderScore();
 updateCalculation();

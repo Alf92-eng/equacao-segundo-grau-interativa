@@ -23,7 +23,7 @@ Na home, use a busca ou escolha um cartão para abrir diretamente qualquer uma d
 - Escreva uma função no laboratório gráfico ou mude a curva pelos três pontos roxos. Pontos alinhados formam uma reta; ao desalinhá-los, a parábola volta.
 - Aproxime, afaste e centralize o gráfico. No computador, a roda do mouse controla o zoom e o botão do meio move o plano.
 - No celular, use os botões `+` e `−` para o zoom. Para manipular o gráfico pelo dedo, escolha um modo de edição e toque em **Ativar toque no gráfico**; depois use **Voltar a rolar a página**.
-- Resolva exercícios e receba pistas para cada etapa. A pontuação fica salva neste navegador.
+- Resolva exercícios e receba pistas para cada etapa. Acertos e tentativas ficam apenas durante a visita atual e zeram ao sair ou atualizar a página.
 
 ## Executar no computador
 

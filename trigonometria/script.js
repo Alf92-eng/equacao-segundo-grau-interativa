@@ -102,7 +102,7 @@ function initPage() {
   const point = byId("triangle-point");
   const editToggle = byId("edit-toggle");
   const steps = [...document.querySelectorAll(".step-item")];
-  const state = { angle: 30, hypotenuse: 10, editMode: false, dragging: false, currentQuestion: 0, solvedInVisit: new Set(), score: readScore() };
+  const state = { angle: 30, hypotenuse: 10, editMode: false, dragging: false, currentQuestion: 0, solvedInVisit: new Set(), score: { correct: 0, attempts: 0 } };
   let announcementTimer;
 
   function sizeDragHandle() {
@@ -300,19 +300,6 @@ function initPage() {
     ] }
   ];
 
-  function readScore() {
-    try {
-      const saved = JSON.parse(localStorage.getItem("trigonometria-score-v1") || "null");
-      if (saved && Number.isSafeInteger(saved.correct) && Number.isSafeInteger(saved.attempts) && saved.correct >= 0 && saved.attempts >= 0) return saved;
-    } catch (_) { /* O exercício funciona sem armazenamento. */ }
-    return { correct: 0, attempts: 0 };
-  }
-
-  function saveScore() {
-    try { localStorage.setItem("trigonometria-score-v1", JSON.stringify(state.score)); }
-    catch (_) { /* O exercício funciona sem armazenamento. */ }
-  }
-
   function renderScore() {
     byId("score").textContent = `${state.score.correct} ${state.score.correct === 1 ? "acerto" : "acertos"} · ${state.score.attempts} ${state.score.attempts === 1 ? "tentativa" : "tentativas"}`;
     document.querySelectorAll(".progress-dots span").forEach((dot, index) => dot.classList.toggle("on", state.solvedInVisit.has(index)));
@@ -406,10 +393,15 @@ function initPage() {
         state.solvedInVisit.add(state.currentQuestion);
       }
     }
-    saveScore();
     renderScore();
   });
   byId("new-question").addEventListener("click", () => { state.currentQuestion = (state.currentQuestion + 1) % questions.length; renderQuestion(); byId("answer-0").focus(); });
+  window.addEventListener("pagehide", () => {
+    state.score.correct = 0;
+    state.score.attempts = 0;
+    state.solvedInVisit.clear();
+    renderQuestion();
+  });
 
   const navLinks = [...document.querySelectorAll(".step-nav a")];
   if ("IntersectionObserver" in window) {

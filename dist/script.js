@@ -81,28 +81,7 @@ const state = {
   }
 };
 
-const scoreStorageKey = "matematica-interativa:score:v1";
 const coarsePointer = window.matchMedia("(pointer: coarse)");
-
-function loadScore() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(scoreStorageKey));
-    if (saved && Number.isSafeInteger(saved.correct) && Number.isSafeInteger(saved.attempts)
-      && saved.correct >= 0 && saved.attempts >= saved.correct) {
-      state.score = { correct: saved.correct, attempts: saved.attempts };
-    }
-  } catch (_) {
-    // O exercício continua disponível quando o armazenamento está bloqueado.
-  }
-}
-
-function saveScore() {
-  try {
-    localStorage.setItem(scoreStorageKey, JSON.stringify(state.score));
-  } catch (_) {
-    // A pontuação continua válida durante a sessão atual.
-  }
-}
 
 function normalizeZero(value) {
   return Math.abs(value) < 1e-10 ? 0 : value;
@@ -1224,7 +1203,6 @@ function checkExercise(event) {
     }
   }
   updateScore();
-  saveScore();
 }
 
 function updateScore() {
@@ -1321,8 +1299,13 @@ elements.resetView.addEventListener("click", resetGraphView);
 elements.zoomIn.addEventListener("click", () => setGraphZoom(state.graph.zoom * 125));
 elements.zoomOut.addEventListener("click", () => setGraphZoom(state.graph.zoom * 80));
 window.addEventListener("resize", handleResize);
+window.addEventListener("pagehide", () => {
+  state.score.correct = 0;
+  state.score.attempts = 0;
+  updateScore();
+  generateExercise();
+});
 
-loadScore();
 updateScore();
 updateTouchEditing();
 calculateAndRender();

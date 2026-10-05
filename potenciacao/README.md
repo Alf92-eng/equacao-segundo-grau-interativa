@@ -8,7 +8,7 @@ Abra `index.html` desta pasta no navegador. Não é preciso instalar programas, 
 
 - Escolha uma operação no laboratório e altere as bases e os expoentes inteiros. A expressão, a resolução e o mapa de fatores são atualizados juntos.
 - Use os exemplos rápidos ou os botões do mapa para explorar outros valores.
-- Em **Agora é sua vez**, escolha a propriedade, digite o resultado e receba uma pista quando errar. Acertos e tentativas ficam salvos neste navegador quando o armazenamento estiver disponível.
+- Em **Agora é sua vez**, escolha a propriedade, digite o resultado e receba uma pista quando errar. Acertos e tentativas valem somente durante a visita atual e zeram ao sair ou atualizar a página.
 
 O laboratório aceita bases de −9 a 9 e expoentes de −6 a 6. Ele explica casos como `0⁰`, expoente negativo com base zero e divisão por zero, sem mostrar um resultado inválido.
 

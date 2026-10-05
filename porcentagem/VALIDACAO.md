@@ -26,7 +26,7 @@ A aula apresenta uma progressão coerente do conceito “por cento” para três
 | Acessibilidade | Sem nota — evidência insuficiente | Semântica e foco visível confirmados parcialmente; leitor de tela não testado | Labels/ARIA no código e avanço por Tab com outline visível | Baixa |
 | Responsividade/mobile | 4 | Sem rolagem horizontal nas larguras emuladas | `scrollWidth` igual a `clientWidth` em 375, 390, 768 e 1440 px | Média |
 | Formulários e entradas | 4 | Decimal com vírgula aceito; todo zero, campo vazio e taxa negativa tratados | Interações e mensagens observadas no navegador | Média |
-| Qualidade técnica | 4 | Página executada e atualizações coerentes nos fluxos avaliados | Carregamento da aula, cálculos, exercício e persistência | Média |
+| Qualidade técnica | 4 | Página executada e atualizações coerentes nos fluxos avaliados | Carregamento da aula, cálculos, exercício e pontuação desta visita | Média |
 | Desempenho | Sem nota — evidência insuficiente | Métricas e desempenho em dispositivo modesto não medidos | Nenhum perfil ou medição de desempenho executado | Baixa |
 | Segurança básica do front-end | Sem nota — escopo insuficiente | Inspeção limitada à página estática; não houve teste de segurança | Código front-end local; nenhum teste de servidor/API | Baixa |
 | SEO básico | 4 | Idioma, título e descrição presentes | Metadados do HTML da nova página | Média |
@@ -76,7 +76,7 @@ Não foi calculada nota geral: a avaliação não cobriu todos os pilares com ev
 | Resposta correta | Responder 30 à mesma questão | Mensagem de acerto e atualização do progresso | “Correto!”; contadores atualizados | Testado e confirmado | Formulário de prática |
 | Nova questão | Solicitar nova questão | Avançar para a seguinte | “QUESTÃO 2 DE 3” | Testado e confirmado | Botão “Nova questão” |
 | Persistência do progresso | Atualizar a página após um acerto | Contadores preservados no mesmo navegador | `3` acertos e `5` tentativas antes e depois da atualização | Testado e confirmado | Valores exibidos após reload |
-| Persistência de resposta errada e correta | Enviar resposta incorreta, atualizar; acertar e atualizar outra vez | Preservar tentativas e acertos | Após erro: 0/1 antes e depois; após acerto: 1/2 antes e depois | Testado e confirmado | Navegador local; `localStorage` |
+| Reinício da pontuação | Registrar uma tentativa, disparar `pagehide` e recarregar | Zerar acertos e tentativas ao sair e ao atualizar | 1 tentativa antes; 0 após `pagehide` e 0 após recarga | Testado e confirmado | Navegador integrado; Porcentagem |
 | Grade conceitual | Conferir a grade de porcentagem | 100 células | 100 elementos na grade; 50 preenchidos | Testado e confirmado | DOM da representação visual |
 | Navegação da home | Abrir caderno e selecionar capítulo 05 | Abrir a aula de Porcentagem | URL final `porcentagem/index.html`, título correto | Testado e confirmado | Fluxo de navegação no navegador |
 | Teclado e foco | Pressionar Tab duas vezes no início da aula | Foco no skip link e depois na marca; foco visível | Ambos os elementos receberam foco e outline de 3 px | Testado e confirmado | Elemento ativo e estilo computado |
@@ -96,7 +96,8 @@ Não foi calculada nota geral: a avaliação não cobriu todos os pilares com ev
 - [x] Criar uma aula responsiva com três perguntas, fórmula, explicação passo a passo e representação textual/visual; critério: campos, resultado e interpretação sincronizados.
 - [x] Integrar Porcentagem ao índice do caderno e atualizar o total de capítulos; critério: o link abre a aula correta.
 - [x] Validar casos comuns, vírgula decimal, entradas inválidas, zero no denominador e variação acima de 100%; critério: saída correta ou mensagem sem valor inválido.
-- [x] Incluir exercício com feedback, nova questão e progresso salvo; critério: acerto, erro e persistência observáveis.
+- [x] Incluir exercício com feedback e nova questão; critério: acerto, erro e contador limitados à visita atual.
+- [ ] Confirmar que atualizar, sair e voltar pelo cache zeram contadores e limpam o exercício; critério: nenhum resultado da visita anterior reaparece.
 - [ ] Completar a validação de acessibilidade com leitor de tela, contraste e zoom; critério: registrar resultados e corrigir barreiras confirmadas.
 - [ ] Repetir testes em dispositivo físico e navegador adicional; critério: os fluxos essenciais continuam sem overflow ou falhas.
 - [ ] Medir desempenho e confirmar o indício H-01 na home se reaparecer; critério: registrar ferramenta, condições e evidência reproduzível.
