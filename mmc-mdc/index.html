@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f9f5">
+  <meta name="description" content="Aprenda a calcular o MMC e o MDC por fatoração, experimente com números e pratique com feedback.">
+  <title>MMC e MDC | Matemática em Ação</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="matematica.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="Matemática em Ação, voltar ao início"><span class="brand-mark" aria-hidden="true">÷</span><span>Matemática <strong>em Ação</strong></span></a>
+      <nav class="step-nav" aria-label="Etapas da aula">
+        <a href="#entenda">Entenda</a><a href="#fatoracao">Fatoração</a><a href="#laboratorio">Experimente</a><a href="#pratique">Pratique</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="section hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> MATEMÁTICA, PASSO A PASSO</p>
+        <h1 id="hero-title">MMC e MDC<span class="title-dot">.</span></h1>
+        <p class="hero-lead">Descubra quando dois ou mais números se encontram nos múltiplos e quando compartilham divisores — com a fatoração em números primos.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#entenda">Começar a aprender <span aria-hidden="true">↗</span></a><span class="hero-time">Uma aula para explorar no seu ritmo</span></div>
+        <div class="learning-goals" role="group" aria-label="Ao final desta aula, você poderá">
+          <span>Distinguir MMC de MDC</span><span>Comparar fatores primos</span><span>Resolver problemas</span>
+        </div>
+      </div>
+      <div class="hero-visual" role="img" aria-label="Fatorações de 12 e 18: o fator comum 2 vezes 3 forma o MDC 6; todos os fatores com os maiores expoentes formam o MMC 36">
+        <p class="visual-label">UM EXEMPLO PARA DESCOBRIR</p>
+        <div class="hero-equation"><span>12</span><span class="hero-equals">e</span><span>18</span></div>
+        <div class="hero-factorizations"><span>12 = 2² × 3</span><span>18 = 2 × 3²</span></div>
+        <div class="hero-results"><span><strong>MDC</strong><b>6</b></span><span><strong>MMC</strong><b>36</b></span></div>
+      </div>
+    </section>
+
+    <section class="section intro-section" id="entenda" aria-labelledby="intro-title">
+      <div class="section-heading"><p class="section-number">01 / ENTENDA</p><h2 id="intro-title">Dois jeitos de procurar relações</h2><p>MMC e MDC respondem a perguntas diferentes. O nome já dá uma pista do que procurar.</p></div>
+      <div class="meaning-grid">
+        <article class="meaning-card meaning-blue"><span class="meaning-index">M</span><h3>Mínimo Múltiplo Comum</h3><p>O menor número positivo que aparece na lista de múltiplos de todos os números dados.</p><p class="meaning-formula">múltiplos de 4: 4, 8, 12, 16…<br>múltiplos de 6: 6, 12, 18…<br><strong>MMC(4, 6) = 12</strong></p></article>
+        <article class="meaning-card meaning-green"><span class="meaning-index">D</span><h3>Máximo Divisor Comum</h3><p>O maior número que divide todos os números dados sem deixar resto.</p><p class="meaning-formula">divisores de 12: 1, 2, 3, 4, 6, 12<br>divisores de 18: 1, 2, 3, 6, 9, 18<br><strong>MDC(12, 18) = 6</strong></p></article>
+      </div>
+      <aside class="note-card"><span class="note-icon" aria-hidden="true">?</span><div><h3>Como saber qual usar?</h3><p>Quando algo se repete e queremos descobrir quando coincide, costuma ser caso de <strong>MMC</strong>. Quando queremos repartir em grupos iguais, sem sobras e do maior tamanho possível, costuma ser caso de <strong>MDC</strong>.</p></div></aside>
+    </section>
+
+    <section class="section factor-section" id="fatoracao" aria-labelledby="factor-title">
+      <div class="section-heading"><p class="section-number">02 / VEJA A IDEIA</p><h2 id="factor-title">Fatore, compare, escolha</h2><p>Escreva cada número como produto de fatores primos. Para o MDC, use os fatores comuns com os menores expoentes; para o MMC, use todos com os maiores expoentes.</p></div>
+      <div class="factor-story">
+        <div class="factor-number"><span>12</span><strong>12 = 2² × 3</strong><small>dois fatores 2 e um fator 3</small></div>
+        <div class="factor-number"><span>18</span><strong>18 = 2 × 3²</strong><small>um fator 2 e dois fatores 3</small></div>
+      </div>
+      <article class="factor-walkthrough" aria-labelledby="walkthrough-title">
+        <div class="walkthrough-heading">
+          <p class="card-kicker">FATORAÇÃO NA PRÁTICA</p>
+          <h3 id="walkthrough-title">Como fatorar 84?</h3>
+          <p>Divida por números primos, começando pelo menor que divide sem resto. Repita até chegar a 1.</p>
+        </div>
+        <ol class="division-steps">
+          <li><span class="division-number">84</span><span class="division-action">84 é par: divida por 2.</span><span class="division-result">84 ÷ 2 = 42</span></li>
+          <li><span class="division-number">42</span><span class="division-action">42 ainda é par: divida por 2 outra vez.</span><span class="division-result">42 ÷ 2 = 21</span></li>
+          <li><span class="division-number">21</span><span class="division-action">21 não divide por 2; 2 + 1 = 3, então divida por 3.</span><span class="division-result">21 ÷ 3 = 7</span></li>
+          <li><span class="division-number">7</span><span class="division-action">7 é primo: divida por ele mesmo.</span><span class="division-result">7 ÷ 7 = 1</span></li>
+        </ol>
+        <p class="factor-conclusion"><strong>Leia os divisores primos:</strong> 84 = 2 × 2 × 3 × 7 = <strong>2² × 3 × 7</strong>.</p>
+        <p class="factor-reminder">Dica: só pare quando o quociente chegar a 1. Cada divisor usado na escadinha é um fator primo.</p>
+      </article>
+      <div class="choice-grid">
+        <article class="choice-card choice-green"><p class="card-kicker">MENOR EXPOENTE COMUM</p><h3>MDC: somente os fatores compartilhados</h3><p>O 2 aparece nos dois; o menor expoente é 1. O 3 também aparece nos dois; seu menor expoente é 1.</p><p class="choice-equation">MDC(12, 18) = 2¹ × 3¹ = <strong>6</strong></p></article>
+        <article class="choice-card choice-blue"><p class="card-kicker">MAIOR EXPOENTE DE CADA FATOR</p><h3>MMC: todos os fatores necessários</h3><p>Inclua cada primo que aparece em alguma fatoração, usando o maior expoente encontrado.</p><p class="choice-equation">MMC(12, 18) = 2² × 3² = <strong>36</strong></p></article>
+      </div>
+      <p class="small-note">Para dois números positivos, MDC(a, b) × MMC(a, b) = a × b. Essa relação não deve ser generalizada diretamente para três ou mais números.</p>
+    </section>
+
+    <section class="lab-band" id="laboratorio" aria-labelledby="lab-title"><div class="section lab-section">
+      <div class="section-heading"><p class="section-number">03 / EXPERIMENTE</p><h2 id="lab-title">Laboratório de MMC e MDC</h2><p>Digite de 2 a 5 números inteiros positivos. Altere os valores e acompanhe os resultados e os expoentes.</p></div>
+      <div class="lab-shell">
+        <div class="lab-input-panel">
+          <form id="number-form" novalidate>
+            <div class="field">
+              <label for="numbers-input">Números para comparar</label>
+              <input id="numbers-input" name="numbers" type="text" inputmode="numeric" value="12, 18, 24" autocomplete="off" aria-describedby="numbers-help lab-error">
+              <small id="numbers-help">Separe por vírgulas, espaços ou ponto e vírgula. Use valores de 1 a 1.000.000.</small>
+            </div>
+            <p class="lab-error" id="lab-error" role="alert" hidden></p>
+          </form>
+          <div class="preset-box"><p>Exemplos rápidos</p><div class="preset-list"><button type="button" data-preset="coincidence">Ciclos: 4 e 6</button><button type="button" data-preset="sharing">Repartir: 12 e 18</button><button type="button" data-preset="three">Três números</button><button type="button" data-preset="one">Incluindo 1</button></div></div>
+          <div class="result-grid" aria-label="Resultados calculados">
+            <article class="result-card result-blue"><span class="result-label">MENOR MÚLTIPLO COMUM</span><strong id="mmc-answer" role="status" aria-live="polite">72</strong><p id="mmc-meaning">72 é o menor múltiplo positivo comum aos números.</p></article>
+            <article class="result-card result-green"><span class="result-label">MÁXIMO DIVISOR COMUM</span><strong id="mdc-answer" role="status" aria-live="polite">6</strong><p id="mdc-meaning">6 é o maior divisor comum aos números.</p></article>
+          </div>
+        </div>
+        <div class="factor-table-panel">
+          <div class="panel-heading"><div><p class="card-kicker">QUADRO DE FATORES</p><h3>Compare os expoentes</h3></div></div>
+          <div class="table-scroll" id="factor-table-wrap">
+            <table id="factor-table">
+              <caption>Expoentes dos fatores primos dos números informados</caption>
+              <thead><tr><th scope="col">Primo</th><th scope="col">12</th><th scope="col">18</th><th scope="col">24</th><th scope="col">Menor</th><th scope="col">Maior</th></tr></thead>
+              <tbody><tr><th scope="row">2</th><td>2</td><td>1</td><td>3</td><td>1</td><td>3</td></tr><tr><th scope="row">3</th><td>1</td><td>2</td><td>1</td><td>1</td><td>2</td></tr></tbody>
+            </table>
+          </div>
+          <p class="table-note">Expoente 0 significa que aquele fator primo não aparece na fatoração do número.</p>
+          <p id="factorization-text" class="factorization-text">12 = 2² × 3 · 18 = 2 × 3² · 24 = 2³ × 3</p>
+        </div>
+      </div>
+      <div class="reason-layout">
+        <div class="paper-card steps-panel"><div class="panel-heading"><div><p class="card-kicker">RESOLUÇÃO GUIADA</p><h3>Uma linha de cada vez</h3></div><button type="button" id="next-step" class="button button-secondary">Próximo passo ↓</button></div><div id="steps-list" class="steps-list"></div></div>
+        <aside class="paper-card interpretation-card"><p class="card-kicker">LEIA O RESULTADO</p><h3 id="interpretation-title">O que os números contam</h3><p id="interpretation-text">O MDC mostra o maior grupo igual possível; o MMC mostra quando os múltiplos se encontram.</p><div class="word-problem"><strong>Uma situação comum</strong><p>Se dois sinais se repetem a cada 4 e 6 minutos, eles voltam a coincidir depois de 12 minutos: o MMC(4, 6).</p></div></aside>
+      </div>
+    </div></section>
+
+    <section class="section practice-section" id="pratique" aria-labelledby="practice-title">
+      <div class="section-heading"><p class="section-number">04 / AGORA É SUA VEZ</p><h2 id="practice-title">Resolva e confira</h2><p>Leia com atenção se a pergunta procura um múltiplo ou um divisor. Se errar, uma pista ajuda você a escolher o próximo passo.</p></div>
+      <div class="practice-layout">
+        <article class="paper-card exercise-card">
+          <div class="exercise-top"><span id="question-count">QUESTÃO 1 DE 4</span><button type="button" id="new-question" class="text-button">Nova questão ↻</button></div>
+          <p id="question-topic" class="exercise-topic">Encontre um divisor comum</p><p id="question-expression" class="exercise-expression">Qual é o MDC de 24 e 36?</p>
+          <form id="practice-form" novalidate><div class="practice-value"><label for="numeric-answer">Qual é a resposta?</label><input id="numeric-answer" type="text" inputmode="numeric" autocomplete="off" placeholder="Ex.: 12" aria-describedby="practice-hint"></div><small id="practice-hint">Digite um número inteiro positivo.</small><div class="practice-actions"><button type="submit" class="button button-primary">Verificar resposta</button><button type="button" id="clear-answer" class="button button-quiet">Tentar novamente</button></div></form>
+          <div id="practice-feedback" class="practice-feedback" role="status" aria-live="polite" hidden></div>
+        </article>
+        <aside class="score-card"><span class="score-spark" aria-hidden="true">✳</span><p>SEU PROGRESSO</p><div class="score-numbers"><div><strong id="correct-count">0</strong><span>acertos</span></div><div><strong id="attempt-count">0</strong><span>tentativas</span></div></div><p>Acertos e tentativas ficam salvos neste navegador e voltam quando você reabrir a aula.</p><p id="storage-note" class="storage-note" role="status" hidden></p></aside>
+      </div>
+    </section>
+
+    <section class="section summary-section" id="resumo" aria-labelledby="summary-title"><div class="summary-card"><div><p class="section-number">05 / GUARDE ISSO</p><h2 id="summary-title">MMC ou MDC?</h2><p>Escreva os números como produtos de fatores primos e compare os expoentes.</p></div><ol><li><strong>MMC — menor múltiplo comum</strong><span>Use todos os fatores primos que aparecem, com o maior expoente de cada um.</span></li><li><strong>MDC — máximo divisor comum</strong><span>Use apenas os fatores primos comuns, com o menor expoente de cada um.</span></li><li><strong>Confira o contexto</strong><span>Coincidência de repetições costuma pedir MMC; maior repartição igual sem sobras costuma pedir MDC.</span></li></ol></div></section>
+  </main>
+  <footer class="site-footer"><span>Matemática em Ação · MMC e MDC</span><a href="../index.html">Voltar ao caderno ↑</a></footer>
+</body>
+</html>

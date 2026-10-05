@@ -10,8 +10,12 @@ Portal educacional gratuito feito com HTML, CSS e JavaScript puro, sem instalaç
 - [Potenciação](./potenciacao/index.html): propriedades, exemplos interativos e prática.
 - [Trigonometria](./trigonometria/index.html): seno, cosseno, tangente e triângulo interativo.
 - [Conversor de medidas](./conversao/index.html): conversões de diferentes grandezas com explicações.
+- [Porcentagem](./porcentagem/index.html): conceito de partes de 100, cálculos e variações percentuais com prática interativa.
+- [Conjuntos numéricos](./conjuntos-numericos/index.html): classificação dos naturais, inteiros, racionais, irracionais e reais.
+- [Radiciação](./raizes/index.html): raízes de vários índices, simplificação e operações com radicais.
+- [MMC e MDC](./mmc-mdc/index.html): cálculo de múltiplos e divisores comuns com explicação passo a passo.
 
-Na home, você também pode filtrar os assuntos pela busca e responder a um desafio rápido de potenciação.
+Na home, use a busca ou escolha um cartão para abrir diretamente qualquer uma das oito trilhas. A página também inclui um desafio interativo de potenciação.
 
 ## Aula de equação do 2º grau
 

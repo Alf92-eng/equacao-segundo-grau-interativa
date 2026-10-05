@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f9f5">
+  <meta name="description" content="Aprenda porcentagem com exemplos, uma calculadora interativa, representação visual e exercícios com feedback.">
+  <title>Porcentagem | Matemática em Ação</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="Matemática em Ação, voltar ao início"><span class="brand-mark" aria-hidden="true">%</span><span>Matemática <strong>em Ação</strong></span></a>
+      <nav class="step-nav" aria-label="Etapas da aula">
+        <a href="#entenda">Entenda</a><a href="#significados">Situações</a><a href="#laboratorio">Experimente</a><a href="#pratique">Pratique</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero section" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> MATEMÁTICA, PASSO A PASSO</p>
+        <h1 id="hero-title">Porcentagem<span class="title-dot">.</span></h1>
+        <p class="hero-lead">Descubra como uma parte se relaciona com o todo — e use essa ideia para entender descontos, resultados e mudanças.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#entenda">Começar a aprender <span aria-hidden="true">↗</span></a><span class="hero-time">Uma aula para explorar no seu ritmo</span></div>
+        <div class="learning-goals" role="group" aria-label="Ao final desta aula, você poderá">
+          <span>Interpretar partes de 100</span><span>Calcular uma porcentagem</span><span>Comparar variações</span>
+        </div>
+      </div>
+      <div class="hero-visual" role="img" aria-label="Uma grade com metade dos quadrados preenchidos representa cinquenta por cento">
+        <div class="hero-sticker">CADA QUADRADO VALE 1% <span aria-hidden="true">✳</span></div>
+        <div class="hundred-grid hero-grid" aria-hidden="true"></div>
+        <div class="hero-percent">50<span>%</span></div>
+        <p>50 de cada 100 partes</p>
+      </div>
+    </section>
+
+    <section class="section intro-section" id="entenda" aria-labelledby="intro-title">
+      <div class="section-heading"><p class="section-number">01 / ENTENDA</p><h2 id="intro-title">Por cento: de cada cem</h2><p>O símbolo % quer dizer “por cento”. Ele compara uma quantidade com um todo dividido em 100 partes iguais.</p></div>
+      <div class="concept-grid">
+        <article class="paper-card concept-main">
+          <p class="card-kicker">A IDEIA CENTRAL</p>
+          <div class="concept-formula"><span class="formula-percent">25%</span><span class="formula-equals">=</span><span class="formula-words">25 em cada 100</span></div>
+          <p>Se uma turma tem 100 estudantes, <strong>25% correspondem a 25 estudantes</strong>. Se o todo mudar, a quantidade correspondente também muda.</p>
+          <div class="term-grid"><div><strong>Porcentagem</strong><p>A taxa ou proporção, como 25%.</p></div><div><strong>Todo</strong><p>A quantidade de referência, ou 100%.</p></div><div><strong>Parte</strong><p>A quantidade que corresponde à taxa.</p></div></div>
+        </article>
+        <aside class="paper-card note-card"><span class="note-icon" aria-hidden="true">!</span><h3>Uma equivalência útil</h3><p>Como <strong>25% = 25/100 = 0,25</strong>, calcular 25% de 80 também é multiplicar 80 por 0,25.</p><p>Porcentagem é uma comparação: sempre pergunte <strong>“de qual todo?”</strong></p></aside>
+      </div>
+      <div class="paper-card grid-explainer">
+        <div><p class="card-kicker">UMA GRADE, CEM PARTES</p><h3>Metade da grade está colorida</h3><p>Conte os quadrados preenchidos: 50 de 100, isto é, 50%. Cada pequeno quadrado representa 1% do todo.</p></div>
+        <div class="hundred-grid teaching-grid" role="img" aria-label="Grade de 100 quadrados; os primeiros 50 estão preenchidos, representando 50 por cento"></div>
+      </div>
+    </section>
+
+    <section class="section meaning-section" id="significados" aria-labelledby="meaning-title">
+      <div class="section-heading"><p class="section-number">02 / TRÊS PERGUNTAS</p><h2 id="meaning-title">O que você quer descobrir?</h2><p>A mesma relação entre parte e todo ajuda a responder perguntas diferentes.</p></div>
+      <div class="meaning-grid">
+        <article class="meaning-card meaning-green"><span class="meaning-index">01</span><h3>Quanto é uma porcentagem?</h3><p>“Quanto é 20% de 150?”</p><p class="meaning-formula">20 ÷ 100 × 150 = 30</p><p>Transforme o percentual em fração de 100 e multiplique pelo todo.</p></article>
+        <article class="meaning-card meaning-blue"><span class="meaning-index">02</span><h3>Que porcentagem é essa parte?</h3><p>“30 representa quantos % de 120?”</p><p class="meaning-formula">30 ÷ 120 × 100 = 25%</p><p>Divida a parte pelo todo e multiplique por 100.</p></article>
+        <article class="meaning-card meaning-orange"><span class="meaning-index">03</span><h3>Quanto mudou?</h3><p>“Um valor de 80 aumentou 10%.”</p><p class="meaning-formula">80 + 10% de 80 = 88</p><p>Calcule a variação usando o valor inicial como referência.</p></article>
+      </div>
+    </section>
+
+    <section class="lab-band" id="laboratorio" aria-labelledby="lab-title"><div class="section lab-section">
+      <div class="section-heading"><p class="section-number">03 / EXPERIMENTE</p><h2 id="lab-title">Laboratório de porcentagem</h2><p>Escolha a pergunta, altere os valores e acompanhe a conta, o resultado e a representação.</p></div>
+      <div class="lab-shell">
+        <div class="lab-input-panel">
+          <form id="percent-form" novalidate>
+            <label for="mode">Qual pergunta você quer responder?</label>
+            <select id="mode" name="mode">
+              <option value="of">Quanto é uma porcentagem de um valor?</option>
+              <option value="what">Uma parte representa quantos por cento do todo?</option>
+              <option value="change">Qual é o valor depois de uma variação?</option>
+            </select>
+            <div class="field-grid">
+              <div class="field" data-field="percent">
+                <label for="percent-input">Porcentagem</label>
+                <div class="input-suffix"><input id="percent-input" name="percent" type="text" inputmode="decimal" value="20" autocomplete="off" aria-describedby="percent-help error-percent"><span aria-hidden="true">%</span></div>
+                <small id="percent-help">Use um número de 0 a 1.000.</small><small id="error-percent" class="field-error"></small>
+              </div>
+              <div class="field" data-field="whole">
+                <label for="whole-input">Todo / valor de referência</label>
+                <input id="whole-input" name="whole" type="text" inputmode="decimal" value="150" autocomplete="off" aria-describedby="error-whole">
+                <small id="error-whole" class="field-error"></small>
+              </div>
+              <div class="field" data-field="part" hidden>
+                <label for="part-input">Parte</label>
+                <input id="part-input" name="part" type="text" inputmode="decimal" value="30" autocomplete="off" aria-describedby="error-part">
+                <small id="error-part" class="field-error"></small>
+              </div>
+              <div class="field" data-field="original" hidden>
+                <label for="original-input">Valor inicial</label>
+                <input id="original-input" name="original" type="text" inputmode="decimal" value="80" autocomplete="off" aria-describedby="error-original">
+                <small id="error-original" class="field-error"></small>
+              </div>
+              <div class="field" data-field="direction" hidden>
+                <label for="direction-input">Tipo de variação</label>
+                <select id="direction-input" name="direction"><option value="increase">Aumento</option><option value="decrease">Redução</option></select>
+              </div>
+            </div>
+            <p class="input-note">Digite números positivos ou zero. Você pode usar vírgula ou ponto nos decimais.</p>
+            <p class="lab-error" id="lab-error" role="alert" hidden></p>
+          </form>
+          <div class="preset-box"><p>Exemplos rápidos</p><div class="preset-list"><button type="button" data-preset="discount">25% de 80</button><button type="button" data-preset="share">30 de 120</button><button type="button" data-preset="increase">Aumentar 10% de 80</button><button type="button" data-preset="decrease">Reduzir 15% de 200</button></div></div>
+        </div>
+        <div class="lab-result-panel">
+          <span class="result-label">SUA RESPOSTA</span>
+          <div id="expression" class="result-expression">20% de 150</div>
+          <div id="transformation" class="result-transformation">20 ÷ 100 × 150</div>
+          <div class="result-line"></div>
+          <div id="answer" class="result-answer" role="status" aria-live="polite">30</div>
+          <p id="answer-meaning" class="result-meaning">20% de 150 é 30.</p>
+        </div>
+      </div>
+      <div class="reason-layout">
+        <div class="paper-card steps-panel"><div class="panel-heading"><div><p class="card-kicker">EXEMPLO GUIADO</p><h3>Uma linha de cada vez</h3></div><button type="button" id="next-step" class="button button-secondary">Próximo passo ↓</button></div><div id="steps-list" class="steps-list"></div></div>
+        <div class="paper-card visual-panel"><div class="panel-heading"><div><p class="card-kicker">REPRESENTAÇÃO VISUAL</p><h3 id="visual-title">Parte do todo</h3></div></div><div class="percent-bar-track" role="img" id="percent-visual" aria-label="Visualização da porcentagem"><span id="percent-bar"></span></div><div class="bar-labels"><span>0%</span><span id="bar-percent">20%</span><span>100% do todo</span></div><p id="visual-description" class="visual-description">A parte ocupa 20% do todo.</p><p class="visual-note">A barra mostra até 100%. Quando a taxa passa de 100%, o texto informa os grupos completos e a parte restante.</p></div>
+      </div>
+    </div></section>
+
+    <section class="section practice-section" id="pratique" aria-labelledby="practice-title">
+      <div class="section-heading"><p class="section-number">04 / AGORA É SUA VEZ</p><h2 id="practice-title">Resolva e confira</h2><p>Use a relação entre parte, todo e porcentagem. Se errar, uma pista ajuda você a encontrar o próximo passo.</p></div>
+      <div class="practice-layout">
+        <article class="paper-card exercise-card">
+          <div class="exercise-top"><span id="question-count">QUESTÃO 1 DE 3</span><button type="button" id="new-question" class="text-button">Nova questão ↻</button></div>
+          <p id="question-topic" class="exercise-topic">Calcule uma parte</p><p id="question-expression" class="exercise-expression">Quanto é 20% de 150?</p>
+          <form id="practice-form" novalidate><div class="practice-value"><label for="numeric-answer">Qual é a resposta?</label><input id="numeric-answer" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 30" aria-describedby="practice-hint"></div><small id="practice-hint">Use vírgula ou ponto para casas decimais.</small><div class="practice-actions"><button type="submit" class="button button-primary">Verificar resposta</button><button type="button" id="clear-answer" class="button button-quiet">Tentar novamente</button></div></form>
+          <div id="practice-feedback" class="practice-feedback" role="status" aria-live="polite" hidden></div>
+        </article>
+        <aside class="score-card"><span class="score-spark" aria-hidden="true">✳</span><p>SEU PROGRESSO</p><div class="score-numbers"><div><strong id="correct-count">0</strong><span>acertos</span></div><div><strong id="attempt-count">0</strong><span>tentativas</span></div></div><p>Acompanhe seu avanço. A pontuação fica salva neste navegador quando o armazenamento estiver disponível.</p><p id="storage-note" class="storage-note" hidden>O navegador bloqueou o armazenamento; a aula continua funcionando, mas a pontuação não será mantida depois que você sair.</p></aside>
+      </div>
+    </section>
+
+    <section class="section summary-section" id="resumo" aria-labelledby="summary-title"><div class="summary-card"><div><p class="section-number">05 / GUARDE ISSO</p><h2 id="summary-title">Três relações para lembrar</h2><p>Antes de calcular, identifique o todo e o que a pergunta quer descobrir.</p></div><ol><li><strong>Quer achar a parte?</strong><span>Porcentagem ÷ 100 × todo.</span></li><li><strong>Quer achar a taxa?</strong><span>Parte ÷ todo × 100. O todo não pode ser zero.</span></li><li><strong>Quer calcular uma mudança?</strong><span>Encontre a porcentagem do valor inicial; some para aumento ou subtraia para redução.</span></li></ol></div></section>
+  </main>
+  <footer class="site-footer"><span>Matemática em Ação · Porcentagem</span><a href="../index.html">Voltar ao caderno ↑</a></footer>
+</body>
+</html>

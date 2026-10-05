@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f9f5">
+  <meta name="description" content="Aprenda radiciação: raízes quadradas, cúbicas e de outros índices, simplificação e operações com radicais em uma aula interativa.">
+  <title>Radiciação | Matemática em Ação</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="Matemática em Ação, voltar ao início"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 42 42" focusable="false"><path d="M4 22h6l5 12L23 8h15"/><text x="26" y="30">2</text></svg></span><span>Matemática <strong>em Ação</strong></span></a>
+      <nav class="step-nav" aria-label="Etapas da aula">
+        <a href="#entenda">Entenda</a><a href="#regras">Regras</a><a href="#laboratorio">Experimente</a><a href="#pratique">Pratique</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero section" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> MATEMÁTICA, PASSO A PASSO</p>
+        <h1 id="hero-title">Radiciação<span class="title-dot">.</span></h1>
+        <p class="hero-lead">Da raiz quadrada à raiz de qualquer índice: descubra o número que se repete, simplifique radicais e aprenda a multiplicar, dividir e somar raízes.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#entenda">Começar a aprender <span aria-hidden="true">↘</span></a><span class="hero-time">Uma aula para explorar no seu ritmo</span></div>
+        <div class="learning-goals" role="group" aria-label="Ao final desta aula, você poderá">
+          <span>Reconhecer índice e radicando</span><span>Simplificar raízes</span><span>Operar com radicais</span>
+        </div>
+      </div>
+      <div class="hero-visual" role="img" aria-label="Raiz quadrada de 36 é igual a 6, pois 6 vezes 6 é 36">
+        <div class="hero-sticker">QUAL NÚMERO SE REPETE? <span aria-hidden="true">✳</span></div>
+        <div class="hero-expression"><span class="radical hero-root"><svg class="root-sign" viewBox="0 0 26 48" aria-hidden="true" focusable="false"><path d="M1 26h5l5 17L18.5 4" /></svg><span class="radicand">36</span></span><span class="hero-equals">=</span><strong>6</strong></div>
+        <div class="hero-factors"><span>6</span><i>×</i><span>6</span><i>=</i><span>36</span></div>
+        <p>porque 6² = 36</p>
+        <div class="hero-scribble" aria-hidden="true">↗</div>
+      </div>
+    </section>
+
+    <section class="section intro-section" id="entenda" aria-labelledby="intro-title">
+      <div class="section-heading"><p class="section-number">01 / ENTENDA</p><h2 id="intro-title">A raiz desfaz uma potência</h2><p>Radiciação pergunta qual número elevado a um índice produz o número que está dentro do radical.</p></div>
+      <div class="concept-grid">
+        <article class="paper-card concept-main">
+          <p class="card-kicker">LEIA A EXPRESSÃO</p>
+          <div class="concept-formula" role="img" aria-label="Raiz de índice n de a é igual a x quando x elevado a n é igual a a"><span class="radical has-index"><sup class="radical-index">n</sup><svg class="root-sign" viewBox="0 0 26 48" aria-hidden="true" focusable="false"><path d="M1 26h5l5 17L18.5 4" /></svg><span class="radicand">a</span></span><span class="formula-equals">=</span><span class="base-mark">x</span><span class="formula-condition">se x<sup>n</sup> = a</span></div>
+          <p>Na expressão <strong>ⁿ√a</strong>, procuramos a raiz <strong>x</strong> que, elevada a <strong>n</strong>, dá <strong>a</strong>. Por exemplo: <strong>³√27 = 3</strong>, pois 3³ = 27.</p>
+          <div class="term-grid"><div><strong>Índice <span>n</span></strong><p>Mostra qual potência estamos desfazendo. Se não aparece, o índice é 2.</p></div><div><strong>Radicando <span>a</span></strong><p>É o número dentro do sinal de raiz; também podemos chamá-lo de número sob o radical.</p></div></div>
+        </article>
+        <aside class="paper-card note-card"><span class="note-icon" aria-hidden="true">!</span><h3>O sinal da raiz importa</h3><p>Com índice <strong>par</strong>, trabalhamos nos reais apenas com radicando não negativo. A raiz principal de √25 é 5, não ±5.</p><p>Com índice <strong>ímpar</strong>, números negativos também têm raiz real: ³√(−8) = −2.</p><p>Um expoente dentro da raiz pode ser agrupado: √(2⁶) = 2³ = 8. Veja sempre o índice e os parênteses.</p></aside>
+      </div>
+    </section>
+
+    <section class="section rules-section" id="regras" aria-labelledby="rules-title">
+      <div class="section-heading"><p class="section-number">02 / CONHEÇA AS REGRAS</p><h2 id="rules-title">Radicais em poucas ideias</h2><p>As regras abaixo valem quando os índices são iguais e as raízes estão definidas nos números reais.</p></div>
+      <div class="rules-grid">
+        <article class="rule-card rule-blue"><span class="rule-index">01</span><h3>Raiz de uma potência</h3><p class="rule-formula">ⁿ√(a<sup>m</sup>)</p><p>A potência e a raiz podem se simplificar. Para índice par, √(a²) = |a|; o resultado não é sempre a.</p><button type="button" class="rule-link" data-example="potencia">Testar √(2⁶) <span aria-hidden="true">↗</span></button></article>
+        <article class="rule-card rule-green"><span class="rule-index">02</span><h3>Fatores em grupos</h3><p class="rule-formula">√72 = √(36 · 2) = 6√2</p><p>Retire da raiz cada grupo completo de fatores com o tamanho do índice.</p><button type="button" class="rule-link" data-example="simplificar">Testar √72 <span aria-hidden="true">↗</span></button></article>
+        <article class="rule-card rule-orange"><span class="rule-index">03</span><h3>Multiplicação</h3><p class="rule-formula">ⁿ√a · ⁿ√b = ⁿ√(a · b)</p><p>Com índices iguais, podemos multiplicar os radicandos e simplificar.</p><button type="button" class="rule-link" data-example="multiplicar">Testar √2 · √8 <span aria-hidden="true">↗</span></button></article>
+        <article class="rule-card rule-purple"><span class="rule-index">04</span><h3>Divisão <small>denominador ≠ 0</small></h3><p class="rule-formula">ⁿ√a ÷ ⁿ√b = ⁿ√(a ÷ b)</p><p>Divida os radicandos quando os índices são iguais e a divisão é permitida.</p><button type="button" class="rule-link" data-example="dividir">Testar √48 ÷ √3 <span aria-hidden="true">↗</span></button></article>
+        <article class="rule-card rule-rose"><span class="rule-index">05</span><h3>Potência de um radical</h3><p class="rule-formula">(ⁿ√a)<sup>k</sup></p><p>Escreva como potência racional ou agrupe os fatores e simplifique.</p><button type="button" class="rule-link" data-example="potencia-raiz">Testar (√2)³ <span aria-hidden="true">↗</span></button></article>
+        <article class="rule-card rule-teal"><span class="rule-index">06</span><h3>Soma e subtração</h3><p class="rule-formula">2√5 + 3√5 = 5√5</p><p>Só juntamos radicais semelhantes: mesmo índice e mesmo radicando depois de simplificar.</p><button type="button" class="rule-link" data-example="somar">Testar √8 + √18 <span aria-hidden="true">↗</span></button></article>
+      </div>
+      <p class="rule-caution"><strong>Atenção:</strong> em geral, √a + √b não é igual a √(a + b). Por exemplo, √4 + √9 = 5, enquanto √13 ≠ 5.</p>
+    </section>
+
+    <section class="lab-band" id="laboratorio" aria-labelledby="lab-title"><div class="section lab-section">
+      <div class="section-heading"><p class="section-number">03 / EXPERIMENTE</p><h2 id="lab-title">Laboratório de radicais</h2><p>Escolha uma operação. A expressão, os agrupamentos e a resposta acompanham os valores que você informar.</p></div>
+      <div class="lab-shell">
+        <div class="lab-input-panel">
+          <form id="radical-form" novalidate>
+            <label for="mode">O que você quer investigar?</label>
+            <select id="mode" name="mode">
+              <option value="raiz">Calcular ou simplificar uma raiz</option><option value="potencia">Potência dentro da raiz</option>
+              <option value="multiplicar">Multiplicar duas raízes</option><option value="dividir">Dividir duas raízes</option>
+              <option value="potencia-raiz">Elevar uma raiz a uma potência</option><option value="somar">Somar radicais semelhantes</option><option value="subtrair">Subtrair radicais semelhantes</option>
+            </select>
+            <div class="field-grid">
+              <div class="field" data-field="index"><label for="index">Índice da raiz n</label><input id="index" name="index" type="text" inputmode="numeric" value="2" autocomplete="off" aria-describedby="error-index"><small id="error-index" class="field-error"></small></div>
+              <div class="field" data-field="a"><label for="radicand-a">Radicando a</label><input id="radicand-a" name="a" type="text" inputmode="numeric" value="72" autocomplete="off" aria-describedby="error-a"><small id="error-a" class="field-error"></small></div>
+              <div class="field" data-field="b" hidden><label for="radicand-b">Radicando b</label><input id="radicand-b" name="b" type="text" inputmode="numeric" value="2" autocomplete="off" aria-describedby="error-b"><small id="error-b" class="field-error"></small></div>
+              <div class="field" data-field="power" hidden><label for="power">Expoente k</label><input id="power" name="power" type="text" inputmode="numeric" value="2" autocomplete="off" aria-describedby="error-power"><small id="error-power" class="field-error"></small></div>
+            </div>
+            <p class="input-note">Use inteiros de −1.000.000 a 1.000.000, índice de 2 a 12 e expoente de 1 a 8. Raízes pares não aceitam radicando negativo nos reais.</p>
+            <p class="lab-error" id="lab-error" role="alert" hidden></p>
+          </form>
+          <div class="preset-box"><p>Exemplos rápidos</p><div class="preset-list">
+            <button type="button" data-preset="simplificar">√72</button><button type="button" data-preset="cubo">³√(−216)</button><button type="button" data-preset="potencia">√(2⁶)</button><button type="button" data-preset="multiplicar">√2 · √8</button><button type="button" data-preset="dividir">√48 ÷ √3</button><button type="button" data-preset="potencia-raiz">(√2)³</button><button type="button" data-preset="somar">√8 + √18</button>
+          </div></div>
+        </div>
+        <div class="lab-result-panel"><span class="result-label">SUA CONTA</span><div class="result-equation"><div id="expression" class="result-expression">√72</div><div id="transformation" class="result-transformation">= 6 · √2</div></div><div class="result-line"></div><div id="answer" class="result-answer" role="status" aria-live="polite">6 · √2</div><p id="answer-meaning" class="result-meaning">A forma exata fica mais simples, sem alterar o valor.</p><p id="approximation" class="approximation"></p></div>
+      </div>
+      <div class="reason-layout">
+        <div class="paper-card steps-panel"><div class="panel-heading"><div><p class="card-kicker">EXEMPLO GUIADO</p><h3>Uma linha de cada vez</h3></div><button type="button" id="next-step" class="button button-secondary">Próximo passo ↓</button></div><div id="steps-list" class="steps-list"></div></div>
+        <div class="paper-card visual-panel"><div class="panel-heading"><div><p class="card-kicker">MAPA DE FATORES</p><h3>Encontre os grupos</h3></div></div><p id="visual-description" class="visual-description">Cada grupo completo sai da raiz.</p><div id="factor-board" class="factor-board" aria-hidden="true"></div><p class="visual-note">A decomposição visual mostra os fatores que saem e os que permanecem sob o radical. O cálculo continua exato mesmo quando a resposta é irracional.</p></div>
+      </div>
+    </div></section>
+
+    <section class="section practice-section" id="pratique" aria-labelledby="practice-title">
+      <div class="section-heading"><p class="section-number">04 / AGORA É SUA VEZ</p><h2 id="practice-title">Resolva com uma pista por vez</h2><p>Escolha a resposta exata. Se errar, receba uma pista para revisar a propriedade ou os grupos de fatores.</p></div>
+      <div class="practice-layout"><article class="paper-card exercise-card"><div class="exercise-top"><span id="question-count">QUESTÃO 1 DE 8</span><button type="button" id="new-question" class="text-button">Nova questão ↻</button></div><p id="question-topic" class="exercise-topic">Simplificação</p><p id="question-expression" class="exercise-expression">√72</p><form id="practice-form" novalidate><fieldset><legend>Qual é a forma exata simplificada?</legend><div id="answer-options" class="answer-options"></div></fieldset><div class="practice-actions"><button type="submit" class="button button-primary">Verificar resposta</button><button type="button" id="clear-answer" class="button button-quiet">Tentar novamente</button></div></form><div id="practice-feedback" class="practice-feedback" role="status" aria-live="polite" hidden></div></article><aside class="score-card"><span class="score-spark" aria-hidden="true">✳</span><p>SEU PROGRESSO</p><div class="score-numbers"><div><strong id="correct-count">0</strong><span>acertos</span></div><div><strong id="attempt-count">0</strong><span>tentativas</span></div></div><p>O progresso fica salvo neste navegador quando o armazenamento estiver disponível.</p></aside></div>
+    </section>
+
+    <section class="section summary-section" id="resumo" aria-labelledby="summary-title"><div class="summary-card"><div><p class="section-number">05 / GUARDE ISSO</p><h2 id="summary-title">Três perguntas para lembrar</h2><p>Antes de calcular, confira o índice, o sinal e se os radicais podem ser combinados.</p></div><ol><li><strong>Qual é o índice?</strong><span>Se for par, o radicando precisa ser não negativo nos reais; se for ímpar, pode ser negativo.</span></li><li><strong>Há grupos completos?</strong><span>A cada n fatores iguais sob uma raiz de índice n, um fator sai do radical.</span></li><li><strong>Os radicais são semelhantes?</strong><span>Multiplicamos ou dividimos radicandos com índices iguais; somamos ou subtraímos apenas radicais já simplificados com a mesma parte irracional.</span></li></ol></div></section>
+  </main>
+  <footer class="site-footer"><span>Matemática em Ação · Radiciação</span><a href="../index.html">Voltar ao caderno ↑</a></footer>
+</body>
+</html>

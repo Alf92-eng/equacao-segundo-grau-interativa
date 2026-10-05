@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f9f5">
+  <meta name="description" content="Aprenda os conjuntos numéricos naturais, inteiros, racionais, irracionais e reais com exemplos, reta numérica e exercícios interativos.">
+  <title>Conjuntos numéricos | Matemática em Ação</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="Matemática em Ação, voltar ao início"><span class="brand-mark" aria-hidden="true">ℝ</span><span>Matemática <strong>em Ação</strong></span></a>
+      <nav class="step-nav" aria-label="Etapas da aula">
+        <a href="#entenda">Entenda</a><a href="#hierarquia">Hierarquia</a><a href="#laboratorio">Explore</a><a href="#pratique">Pratique</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero section" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> MATEMÁTICA, PASSO A PASSO</p>
+        <h1 id="hero-title">Conjuntos numéricos<span class="title-dot">.</span></h1>
+        <p class="hero-lead">Descubra como os números se organizam, quais conjuntos contêm cada tipo de número e como reconhecer o menor conjunto ao qual ele pertence.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#entenda">Começar a aprender <span aria-hidden="true">↗</span></a><span class="hero-time">Explore cada conjunto no seu ritmo</span></div>
+        <div class="learning-goals" role="group" aria-label="Ao final desta aula, você poderá">
+          <span>Reconhecer ℕ, ℤ, ℚ, 𝕀 e ℝ</span><span>Entender as inclusões</span><span>Classificar números</span>
+        </div>
+      </div>
+      <div class="hero-visual" role="img" aria-label="Diagrama: os naturais estão contidos nos inteiros, que estão contidos nos racionais, que estão contidos nos reais; os irracionais também estão nos reais, mas não nos racionais">
+        <span class="hero-label">OS NÚMEROS SE ORGANIZAM</span>
+        <div class="hero-equation" aria-hidden="true"><span>ℕ</span><span>⊂</span><span>ℤ</span><span>⊂</span><span>ℚ</span><span>⊂</span><span>ℝ</span></div>
+        <div class="hero-divider" aria-hidden="true"></div>
+        <p>Os irracionais completam os reais:<br><strong>ℝ = ℚ ∪ 𝕀</strong></p>
+        <span class="hero-spark" aria-hidden="true">✳</span>
+      </div>
+    </section>
+
+    <section class="section intro-section" id="entenda" aria-labelledby="intro-title">
+      <div class="section-heading"><p class="section-number">01 / ENTENDA</p><h2 id="intro-title">Uma família de números</h2><p>Um conjunto numérico reúne números que compartilham características. Um mesmo número pode pertencer a vários conjuntos ao mesmo tempo.</p></div>
+      <div class="concept-grid">
+        <article class="paper-card concept-main">
+          <p class="card-kicker">A IDEIA CENTRAL</p>
+          <div class="concept-formula" aria-label="Naturais estão contidos nos inteiros, que estão contidos nos racionais, que estão contidos nos reais">
+            <span class="set-natural">ℕ</span><span class="formula-arrow">⊂</span><span class="set-integer">ℤ</span><span class="formula-arrow">⊂</span><span class="set-rational">ℚ</span><span class="formula-arrow">⊂</span><span class="set-real">ℝ</span>
+          </div>
+          <p>O símbolo <strong>⊂</strong> significa “está contido em”. Por exemplo, todo número natural também é inteiro, racional e real.</p>
+          <div class="term-grid">
+            <div><strong>ℕ — naturais</strong><p>0, 1, 2, 3, … nesta aula.</p></div>
+            <div><strong>ℤ — inteiros</strong><p>…, −2, −1, 0, 1, 2, …</p></div>
+            <div><strong>ℚ — racionais</strong><p>Podem ser escritos como fração de inteiros, com denominador diferente de zero.</p></div>
+            <div><strong>𝕀 — irracionais</strong><p>Não podem ser escritos como fração de inteiros.</p></div>
+            <div><strong>ℝ — reais</strong><p>Reúnem os racionais e os irracionais.</p></div>
+          </div>
+        </article>
+        <aside class="paper-card note-card"><span class="note-icon" aria-hidden="true">!</span><h3>Uma convenção importante</h3><p>Nesta aula, <strong>0 pertence a ℕ</strong>: ℕ = {0, 1, 2, 3, …}. Alguns livros usam ℕ* para os naturais positivos {1, 2, 3, …}. Sempre confira a convenção adotada.</p><p>O símbolo <strong>𝕀</strong> representa os irracionais nesta página; em alguns materiais, você também pode encontrar ℝ \ ℚ.</p></aside>
+      </div>
+    </section>
+
+    <section class="section hierarchy-section" id="hierarquia" aria-labelledby="hierarchy-title">
+      <div class="section-heading"><p class="section-number">02 / VEJA A HIERARQUIA</p><h2 id="hierarchy-title">Conjuntos dentro de conjuntos</h2><p>O diagrama destaca as inclusões. Os irracionais ficam nos reais, mas fora dos racionais: nenhum número é racional e irracional ao mesmo tempo.</p></div>
+      <div class="paper-card hierarchy-card" role="img" aria-label="Diagrama de conjuntos: os reais contêm os racionais e os irracionais; os racionais contêm os inteiros; os inteiros contêm os naturais.">
+        <div class="set-box real-box">
+          <span class="set-name">ℝ <small>REAIS</small></span>
+          <div class="real-regions">
+            <div class="set-box rational-box"><span class="set-name">ℚ <small>RACIONAIS</small></span>
+              <div class="set-box integer-box"><span class="set-name">ℤ <small>INTEIROS</small></span>
+                <div class="set-box natural-box"><span class="set-name">ℕ <small>NATURAIS</small></span><p>0, 1, 2, 3, …</p></div>
+                <p class="integer-examples">… −2, −1, 0, 1, 2, …</p>
+              </div>
+              <p class="rational-examples">Frações e decimais finitos ou periódicos<br>½ · −⅓ · 0,75</p>
+            </div>
+            <div class="irrational-box"><span class="set-name">𝕀 <small>IRRACIONAIS</small></span><p>√2 · π · √3</p><small>decimais infinitos não periódicos</small></div>
+          </div>
+          <p class="real-caption">ℝ = ℚ ∪ 𝕀 &nbsp; e &nbsp; ℚ ∩ 𝕀 = ∅</p>
+        </div>
+      </div>
+      <div class="quick-facts">
+        <article><span>01</span><p><strong>Todo inteiro é racional.</strong> Basta escrevê-lo sobre 1: −4 = −4/1.</p></article>
+        <article><span>02</span><p><strong>Decimal finito ou periódico é racional.</strong> Exemplos: 0,125 = 1/8 e 0,333… = 1/3.</p></article>
+        <article><span>03</span><p><strong>Raiz de quadrado perfeito pode ser natural.</strong> √9 = 3; já √2 é irracional.</p></article>
+      </div>
+    </section>
+
+    <section class="lab-band" id="laboratorio" aria-labelledby="lab-title"><div class="section lab-section">
+      <div class="section-heading"><p class="section-number">03 / EXPLORE</p><h2 id="lab-title">Laboratório de classificação</h2><p>Escolha um número conhecido e investigue seus conjuntos. Depois, teste se ele pertence a um conjunto específico.</p></div>
+      <div class="lab-shell">
+        <div class="lab-input-panel">
+          <label for="example-select">Escolha um número</label>
+          <select id="example-select" name="example">
+            <option value="zero">0</option><option value="negative-integer">−3</option><option value="fraction">3/4</option><option value="finite-decimal">0,125</option><option value="repeating-decimal">0,333…</option><option value="sqrt-nine">√9</option><option value="sqrt-two">√2</option><option value="pi">π</option><option value="sqrt-three">√3</option>
+          </select>
+          <p class="input-note">Os exemplos são valores exatos; a reta numérica usa aproximações apenas para posicionar números irracionais.</p>
+          <form id="membership-form" novalidate>
+            <label for="set-select">Confira se o número pertence a este conjunto</label>
+            <div class="membership-controls">
+              <select id="set-select" name="set">
+                <option value="N">ℕ — naturais</option><option value="Z">ℤ — inteiros</option><option value="Q">ℚ — racionais</option><option value="I">𝕀 — irracionais</option><option value="R">ℝ — reais</option>
+              </select>
+              <button type="submit" class="button button-primary">Conferir</button>
+            </div>
+          </form>
+          <p id="membership-feedback" class="membership-feedback" role="status" aria-live="polite">Escolha um conjunto e confira sua ideia.</p>
+          <div class="preset-box"><p>Experimente estes exemplos</p><div class="preset-list"><button type="button" data-example="zero">O zero</button><button type="button" data-example="fraction">Uma fração</button><button type="button" data-example="sqrt-two">Uma raiz não exata</button><button type="button" data-example="pi">O número π</button></div></div>
+        </div>
+        <div class="lab-result-panel">
+          <span class="result-label">CLASSIFICAÇÃO</span>
+          <div id="selected-number" class="result-expression">0</div>
+          <p id="smallest-set" class="smallest-set">O menor conjunto é ℕ (naturais).</p>
+          <div class="membership-chips" id="membership-chips" aria-label="Conjuntos aos quais o número pertence"></div>
+          <p id="number-reason" class="result-meaning">O zero pertence aos naturais conforme a convenção desta aula.</p>
+        </div>
+      </div>
+      <div class="reason-layout">
+        <div class="paper-card steps-panel"><div class="panel-heading"><div><p class="card-kicker">RACIOCÍNIO GUIADO</p><h3>Como classificar?</h3></div><button type="button" id="next-step" class="button button-secondary">Próximo passo ↓</button></div><div id="steps-list" class="steps-list"></div></div>
+        <div class="paper-card visual-panel"><div class="panel-heading"><div><p class="card-kicker">NA RETA NUMÉRICA</p><h3>Uma posição aproximada</h3></div></div>
+          <div class="number-line-visual" role="img" id="number-line" aria-label="Reta numérica de menos quatro a quatro; o zero está em zero">
+            <div class="number-line-track"><span class="number-marker" id="number-marker"></span></div>
+            <div class="number-ticks" aria-hidden="true"><span>−4</span><span>−3</span><span>−2</span><span>−1</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span></div>
+          </div>
+          <p class="visual-description" id="line-description">O número 0 está na posição 0 da reta.</p>
+          <p class="visual-note">A posição ajuda a visualizar a ordem dos reais; ela não decide, sozinha, se o número é racional ou irracional.</p>
+        </div>
+      </div>
+    </div></section>
+
+    <section class="section practice-section" id="pratique" aria-labelledby="practice-title">
+      <div class="section-heading"><p class="section-number">04 / AGORA É SUA VEZ</p><h2 id="practice-title">Encontre o menor conjunto</h2><p>Leia a pista, pense nas características do número e responda com a letra do menor conjunto que o contém.</p></div>
+      <div class="practice-layout">
+        <article class="paper-card exercise-card">
+          <div class="exercise-top"><span id="question-count">QUESTÃO 1 DE 5</span><button type="button" id="new-question" class="text-button">Nova questão ↻</button></div>
+          <p id="question-topic" class="exercise-topic">Classifique o número</p><p id="question-expression" class="exercise-expression">Qual é o menor conjunto que contém 8?</p>
+          <form id="practice-form" novalidate><div class="practice-value"><label for="numeric-answer">Sua resposta (N, Z, Q ou I)</label><input id="numeric-answer" type="text" autocomplete="off" autocapitalize="characters" maxlength="12" placeholder="Ex.: N" aria-describedby="practice-hint"></div><small id="practice-hint">Responda com N, Z, Q ou I. ℝ não é resposta mínima para estes exemplos.</small><div class="practice-actions"><button type="submit" class="button button-primary">Verificar resposta</button><button type="button" id="clear-answer" class="button button-quiet">Tentar novamente</button></div></form>
+          <div id="practice-feedback" class="practice-feedback" role="status" aria-live="polite" hidden></div>
+        </article>
+        <aside class="score-card"><span class="score-spark" aria-hidden="true">✳</span><p>SEU PROGRESSO</p><div class="score-numbers"><div><strong id="correct-count">0</strong><span>acertos</span></div><div><strong id="attempt-count">0</strong><span>tentativas</span></div></div><p>Acompanhe seu avanço. A pontuação fica salva neste navegador quando o armazenamento estiver disponível.</p><p id="storage-note" class="storage-note" hidden></p></aside>
+      </div>
+    </section>
+
+    <section class="section summary-section" id="resumo" aria-labelledby="summary-title"><div class="summary-card"><div><p class="section-number">05 / GUARDE ISSO</p><h2 id="summary-title">O mapa dos conjuntos</h2><p>Comece pelo conjunto mais específico que descreve o número.</p></div><ol><li><strong>ℕ está dentro de ℤ.</strong><span>Naturais são inteiros não negativos nesta convenção.</span></li><li><strong>ℤ está dentro de ℚ.</strong><span>Todo inteiro pode ser escrito como uma fração com denominador 1.</span></li><li><strong>ℚ está dentro de ℝ.</strong><span>Frações e decimais finitos ou periódicos são racionais.</span></li><li><strong>𝕀 fica fora de ℚ, mas dentro de ℝ.</strong><span>Racionais e irracionais, juntos, formam os reais.</span></li></ol></div></section>
+  </main>
+  <footer class="site-footer"><span>Matemática em Ação · Conjuntos numéricos</span><a href="../index.html">Voltar ao caderno ↑</a></footer>
+</body>
+</html>

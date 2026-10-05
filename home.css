@@ -356,6 +356,10 @@ svg { display: block; max-width: 100%; }
 .topic-powers .topic-icon { color: #95683b; background: #fbefe1; }
 .topic-trig .topic-icon { color: #5c7091; background: #eaf0f7; }
 .topic-convert .topic-icon { color: #786a93; background: #f0ebf7; font-family: inherit; font-size: 1.55rem; }
+.topic-percentage .topic-icon { color: #a45e24; background: #fbf0df; }
+.topic-sets .topic-icon { color: #287969; background: #e6f3ef; }
+.topic-roots .topic-icon { color: #765b91; background: #f1eaf7; }
+.topic-divisibility .topic-icon { color: #a45148; background: #faece8; }
 .topic-number { color: #626d66; font-size: .63rem; font-weight: 800; letter-spacing: .12em; }
 .topic-card h3 { margin: .2rem 0 .3rem; font-size: 1.2rem; letter-spacing: -.025em; }
 .topic-card > p { max-width: 270px; margin: 0 0 1.2rem; color: var(--muted); font-size: .84rem; line-height: 1.55; }

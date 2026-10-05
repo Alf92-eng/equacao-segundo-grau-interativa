@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR"><meta charset="utf-8"><title>Testes de conjuntos numéricos</title>
+<h1>Testes matemáticos</h1><ol id="resultados"></ol><p id="resumo"></p>
+<script src="../script.js"></script>
+<script>
+  const cases = [
+    ["Zero natural pela convenção da aula", "zero", "N", true],
+    ["Inteiro negativo também é racional", "negative-integer", "Q", true],
+    ["Fração pertence aos racionais", "fraction", "Q", true],
+    ["Decimal finito é racional", "finite-decimal", "Q", true],
+    ["Dízima periódica é racional", "repeating-decimal", "Q", true],
+    ["Raiz exata de quadrado perfeito é natural", "sqrt-nine", "N", true],
+    ["Raiz de número não quadrado perfeito é irracional", "sqrt-two", "I", true],
+    ["Pi é irracional e real", "pi", "R", true],
+    ["Irracionais não são racionais", "sqrt-three", "Q", false],
+    ["Número natural também não é irracional", "zero", "I", false]
+  ];
+  let failures = 0;
+  for (const [name, example, set, expected] of cases) {
+    let passed = false;
+    try { passed = checkMembership(example, set) === expected; } catch (error) { passed = false; }
+    if (!passed) failures++;
+    const item = document.createElement("li");
+    item.textContent = `${passed ? "OK" : "FALHOU"} — ${name}`;
+    document.querySelector("#resultados").append(item);
+  }
+  let invalidIdRejected = false;
+  try { classifyExample("inexistente"); } catch (error) { invalidIdRejected = error instanceof RangeError; }
+  if (!invalidIdRejected) failures++;
+  const invalidTest = document.createElement("li");
+  invalidTest.textContent = `${invalidIdRejected ? "OK" : "FALHOU"} — Exemplo desconhecido é rejeitado explicitamente`;
+  document.querySelector("#resultados").append(invalidTest);
+  document.querySelector("#resumo").textContent = `${cases.length + 1 - failures}/${cases.length + 1} testes passaram`;
+  document.body.dataset.falhas = String(failures);
+</script>
+</html>
